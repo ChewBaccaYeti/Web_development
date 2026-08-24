@@ -243,6 +243,739 @@ npm run algo:pytest    # pytest over algorithms/tests/python
 `task_3` and `task_4` build with `--public-url /JavaScript/`, i.e. they were
 written to deploy under the repo's GitHub Pages path.
 
+## Structure & Architecture
+
+``` -
+.
+├── algorithms
+│   ├── data_structures
+│   │   ├── binary_tree.js
+│   │   ├── binary_tree.mmd
+│   │   ├── binary_tree.py
+│   │   ├── linked_list.js
+│   │   ├── linked_list.mmd
+│   │   ├── linked_list.py
+│   │   ├── queue.js
+│   │   ├── queue.mmd
+│   │   ├── queue.py
+│   │   ├── stack.js
+│   │   ├── stack.mmd
+│   │   ├── stack.py
+│   │   ├── trie.js
+│   │   ├── trie.mmd
+│   │   ├── trie.py
+│   │   ├── union_find.js
+│   │   ├── union_find.mmd
+│   │   └── union_find.py
+│   ├── dp
+│   │   ├── coin_change.js
+│   │   ├── coin_change.py
+│   │   ├── edit_distance.js
+│   │   ├── edit_distance.py
+│   │   ├── knapsack.js
+│   │   ├── knapsack.py
+│   │   ├── lcs.js
+│   │   ├── lcs.py
+│   │   ├── lis.js
+│   │   └── lis.py
+│   ├── graph
+│   │   ├── bellman_ford.js
+│   │   ├── bellman_ford.py
+│   │   ├── bfs.js
+│   │   ├── bfs.py
+│   │   ├── dfs.js
+│   │   ├── dfs.py
+│   │   ├── dijkstra.js
+│   │   ├── dijkstra.py
+│   │   ├── kruskal.js
+│   │   ├── kruskal.py
+│   │   ├── topological.js
+│   │   └── topological.py
+│   ├── math
+│   │   ├── factorial.js
+│   │   ├── factorial.py
+│   │   ├── fast_power.js
+│   │   ├── fast_power.py
+│   │   ├── fibonacci.js
+│   │   ├── fibonacci.py
+│   │   ├── gcd_lcm.js
+│   │   ├── gcd_lcm.py
+│   │   ├── prime.js
+│   │   ├── prime.py
+│   │   ├── sieve.js
+│   │   └── sieve.py
+│   ├── README.md
+│   ├── searching
+│   │   ├── binary.js
+│   │   ├── binary.py
+│   │   ├── exponential.js
+│   │   ├── exponential.py
+│   │   ├── interpolation.js
+│   │   ├── interpolation.py
+│   │   ├── jump.js
+│   │   ├── jump.py
+│   │   ├── linear.js
+│   │   └── linear.py
+│   ├── sorting
+│   │   ├── bubble.js
+│   │   ├── bubble.py
+│   │   ├── counting.js
+│   │   ├── counting.py
+│   │   ├── heap.js
+│   │   ├── heap.py
+│   │   ├── insertion.js
+│   │   ├── insertion.py
+│   │   ├── merge.js
+│   │   ├── merge.py
+│   │   ├── quick.js
+│   │   ├── quick.py
+│   │   ├── radix.js
+│   │   ├── radix.py
+│   │   ├── selection.js
+│   │   └── selection.py
+│   ├── strings
+│   │   ├── kmp.js
+│   │   ├── kmp.py
+│   │   ├── rabin_karp.js
+│   │   ├── rabin_karp.py
+│   │   ├── z_algorithm.js
+│   │   └── z_algorithm.py
+│   ├── tests
+│   │   ├── js
+│   │   │   ├── jest.config.js
+│   │   │   ├── searching.test.js
+│   │   │   └── sorting.test.js
+│   │   ├── python
+│   │   │   ├── conftest.py
+│   │   │   ├── test_searching.py
+│   │   │   └── test_sorting.py
+│   │   └── README.md
+│   └── visualization
+│       ├── binary_tree.js
+│       ├── index.html
+│       ├── linked_list.js
+│       └── styles.css
+├── babel.config.json
+├── CLAUDE.md
+├── index.html
+├── js_practices
+│   ├── alert_prompt_confirm.js
+│   ├── apps
+│   │   ├── async
+│   │   │   ├── package.json
+│   │   │   ├── package-lock.json
+│   │   │   └── src
+│   │   │       ├── 01-timeout.html
+│   │   │       ├── 02-interval.html
+│   │   │       ├── 03-notification.html
+│   │   │       ├── 04-subscription.html
+│   │   │       ├── 05-date.html
+│   │   │       ├── 06-timer.html
+│   │   │       ├── css
+│   │   │       │   └── common.css
+│   │   │       ├── index.html
+│   │   │       ├── index.js
+│   │   │       └── js
+│   │   │           ├── 01-timeout.js
+│   │   │           ├── 02-interval.js
+│   │   │           ├── 03-notification.js
+│   │   │           ├── 04-subscription.js
+│   │   │           ├── 05-date.js
+│   │   │           └── 06-timer.js
+│   │   ├── async-await
+│   │   │   ├── db.json
+│   │   │   ├── package.json
+│   │   │   ├── package-lock.json
+│   │   │   └── src
+│   │   │       ├── 01-try-catch.html
+│   │   │       ├── 02-json-parse.html
+│   │   │       ├── 03-async.html
+│   │   │       ├── css
+│   │   │       │   └── common.css
+│   │   │       ├── index.html
+│   │   │       ├── index.js
+│   │   │       └── js
+│   │   │           ├── 01-try-catch.js
+│   │   │           ├── 02-json-parse.js
+│   │   │           ├── 03-async.js
+│   │   │           ├── async-crud.js
+│   │   │           ├── crud.js
+│   │   │           └── ui.js
+│   │   ├── colorPalette
+│   │   │   ├── index.html
+│   │   │   ├── palette.js
+│   │   │   └── styles.css
+│   │   ├── crewings
+│   │   │   ├── crewings_email.js
+│   │   │   ├── emails_filtration.js
+│   │   │   ├── emails.txt
+│   │   │   ├── ua_crewings_emails.js
+│   │   │   ├── ua_emails_unique.txt
+│   │   │   └── ua_email.txt
+│   │   ├── CRUD
+│   │   │   ├── db.json
+│   │   │   ├── package.json
+│   │   │   ├── package-lock.json
+│   │   │   └── src
+│   │   │       ├── css
+│   │   │       │   └── common.css
+│   │   │       ├── index.html
+│   │   │       ├── index.js
+│   │   │       └── js
+│   │   │           ├── C - POST.js
+│   │   │           ├── D - DELETE.js
+│   │   │           ├── R - GET.js
+│   │   │           └── U - PATCH.js
+│   │   ├── football-game
+│   │   │   ├── football.css
+│   │   │   ├── football.html
+│   │   │   └── football.js
+│   │   ├── http-requests
+│   │   │   ├── package.json
+│   │   │   ├── package-lock.json
+│   │   │   └── src
+│   │   │       ├── 01-fetch-api.html
+│   │   │       ├── 02-cors.html
+│   │   │       ├── css
+│   │   │       │   └── common.css
+│   │   │       ├── index.html
+│   │   │       ├── index.js
+│   │   │       ├── js
+│   │   │       │   ├── 01-fetch-api.js
+│   │   │       │   ├── 02-cors.js
+│   │   │       │   ├── api-service.js
+│   │   │       │   └── get-refs.js
+│   │   │       └── templates
+│   │   │           └── pokemon-card.hbs
+│   │   ├── localStorage
+│   │   │   ├── package.json
+│   │   │   ├── package-lock.json
+│   │   │   └── src
+│   │   │       ├── 01-localstorage.html
+│   │   │       ├── 02-feedback.html
+│   │   │       ├── 03-colorpicker.html
+│   │   │       ├── 04-gallery.html
+│   │   │       ├── css
+│   │   │       │   ├── colorpicker.css
+│   │   │       │   ├── common.css
+│   │   │       │   ├── feedback-form.css
+│   │   │       │   └── gallery.css
+│   │   │       ├── index.html
+│   │   │       ├── index.js
+│   │   │       ├── js
+│   │   │       │   ├── 01-localstorage.js
+│   │   │       │   ├── 02-feedback.js
+│   │   │       │   ├── 03-colorpicker.js
+│   │   │       │   ├── 04-gallery.js
+│   │   │       │   ├── colors.json
+│   │   │       │   └── countries.json
+│   │   │       ├── storage.js
+│   │   │       └── templates
+│   │   │           ├── color-card.hbs
+│   │   │           ├── color-cards.hbs
+│   │   │           └── gallery-items.hbs
+│   │   ├── npm
+│   │   │   ├── index.html
+│   │   │   ├── index.js
+│   │   │   ├── package.json
+│   │   │   ├── package-lock.json
+│   │   │   └── src
+│   │   │       ├── app.js
+│   │   │       ├── jest
+│   │   │       │   ├── sum.js
+│   │   │       │   └── sum.test.js
+│   │   │       └── js
+│   │   │           ├── api-service.js
+│   │   │           ├── server.js
+│   │   │           ├── validateJoiPassword.js
+│   │   │           └── validator.js
+│   │   ├── pagination
+│   │   │   ├── package.json
+│   │   │   ├── package-lock.json
+│   │   │   └── src
+│   │   │       ├── css
+│   │   │       │   └── common.css
+│   │   │       ├── fetchKeysParamsNewsAPI.js
+│   │   │       ├── index.html
+│   │   │       ├── index.js
+│   │   │       ├── js
+│   │   │       │   ├── components
+│   │   │       │   │   └── load-more-btn.js
+│   │   │       │   └── news-service.js
+│   │   │       └── templates
+│   │   │           └── articles.hbs
+│   │   ├── promises
+│   │   │   ├── package.json
+│   │   │   ├── package-lock.json
+│   │   │   └── src
+│   │   │       ├── 01-promise-api.html
+│   │   │       ├── 02-promisification.html
+│   │   │       ├── 03-racetrack.html
+│   │   │       ├── css
+│   │   │       │   └── common.css
+│   │   │       ├── index.html
+│   │   │       ├── index.js
+│   │   │       └── js
+│   │   │           ├── 01-promise-api.js
+│   │   │           ├── 02-promisification.js
+│   │   │           └── 03-racetrack.js
+│   │   └── webpack
+│   │       ├── babel.config.json
+│   │       ├── index.html
+│   │       ├── package.json
+│   │       ├── package-lock.json
+│   │       ├── src
+│   │       │   ├── css
+│   │       │   │   ├── button.scss
+│   │       │   │   ├── common.scss
+│   │       │   │   ├── landing.scss
+│   │       │   │   └── main.scss
+│   │       │   └── index.js
+│   │       └── webpack.config.js
+│   ├── arrays
+│   │   ├── array_methods
+│   │   │   ├── 01-foreach.js
+│   │   │   ├── 02-map.js
+│   │   │   ├── 03-filter.js
+│   │   │   ├── 04-find.js
+│   │   │   ├── 05-every-some.js
+│   │   │   ├── 06-reduce.js
+│   │   │   ├── 07-sort.js
+│   │   │   ├── 08-flat.js
+│   │   │   ├── 09-chaining.js
+│   │   │   ├── 10-lodash.js
+│   │   │   └── index.html
+│   │   ├── arrays_examples
+│   │   │   ├── 10-cards.js
+│   │   │   ├── 1-basics.js
+│   │   │   ├── 2-paymnet.js
+│   │   │   ├── 3-even.js
+│   │   │   ├── 4-find-login.js
+│   │   │   ├── 5-smallest-number.js
+│   │   │   ├── 6-transform.js
+│   │   │   ├── 7-change-register.js
+│   │   │   ├── 8-slug.js
+│   │   │   └── 9-array-sum.js
+│   │   └── index.html
+│   ├── callback_closures
+│   │   ├── 01-callbacks.js
+│   │   ├── 02-closures.js
+│   │   ├── 03-arrow-fns.js
+│   │   └── index.html
+│   ├── classes
+│   │   ├── 01-class.js
+│   │   ├── 02-inheritance.js
+│   │   ├── 02-inheritance.mmd
+│   │   ├── 03-OOP.js
+│   │   ├── 04-new.js
+│   │   ├── 05-class_reference.js
+│   │   ├── data.json
+│   │   └── index.html
+│   ├── counters-iterations.js
+│   ├── delegation
+│   │   ├── css
+│   │   │   ├── colorpicker.css
+│   │   │   └── styles.css
+│   │   ├── html
+│   │   │   ├── 01-bubbling.html
+│   │   │   ├── 02-delegation.html
+│   │   │   ├── 03-tags.html
+│   │   │   └── 04-colorpicker.html
+│   │   ├── index.html
+│   │   └── js
+│   │       ├── 01-bubbling.js
+│   │       ├── 02-delegation.js
+│   │       ├── 03-tags.js
+│   │       └── 04-colorpicker.js
+│   ├── DOM
+│   │   ├── css
+│   │   │   └── style.css
+│   │   ├── html
+│   │   │   ├── 01-query-selectors.html
+│   │   │   ├── 02-properties.html
+│   │   │   ├── 03-classlist.html
+│   │   │   ├── 04-dom-traversal.html
+│   │   │   ├── 05-creating-elements.html
+│   │   │   ├── 06-collections.html
+│   │   │   ├── 07-products.html
+│   │   │   ├── 08-templating.html
+│   │   │   └── 09-transactions.html
+│   │   ├── index.html
+│   │   └── js
+│   │       ├── 01-query-selectors.js
+│   │       ├── 02-properties.js
+│   │       ├── 03-classlist.js
+│   │       ├── 04-dom-traversal.js
+│   │       ├── 05-creating-elements.js
+│   │       ├── 06-collections.js
+│   │       ├── 07-products.js
+│   │       ├── 08-templating.js
+│   │       ├── 09-transactions.js
+│   │       └── data
+│   │           ├── products.js
+│   │           └── transactions.js
+│   ├── events
+│   │   ├── css
+│   │   │   ├── modal.css
+│   │   │   └── styles.css
+│   │   ├── html
+│   │   │   ├── 01-event-listeners.html
+│   │   │   ├── 02-forms.html
+│   │   │   ├── 03-input-events.html
+│   │   │   ├── 04-keyboard-events.html
+│   │   │   ├── 05-mouse-events.html
+│   │   │   └── 06-modal.html
+│   │   ├── index.html
+│   │   └── js
+│   │       ├── 01-event-listeners.js
+│   │       ├── 02-forms.js
+│   │       ├── 03-input-events.js
+│   │       ├── 04-keyboard-events.js
+│   │       ├── 05-mouse-events.js
+│   │       └── 06-modal.js
+│   ├── lazy-load
+│   │   ├── css
+│   │   │   └── styles.css
+│   │   ├── html
+│   │   │   ├── 01-chatty-events.html
+│   │   │   ├── 02-filter.html
+│   │   │   ├── 03-lazy-load.html
+│   │   │   └── 04-lazysizes.html
+│   │   ├── images
+│   │   │   ├── avocado-cooked-delicious-dish-262959.jpg
+│   │   │   ├── black-frying-pan-with-spaghetti-sauce-near-brown-wooden-691114.jpg
+│   │   │   ├── blueberries-cake-chocolate-chocolate-cake-291528.jpg
+│   │   │   ├── blur-breakfast-close-up-dairy-product-376464.jpg
+│   │   │   ├── flat-lay-photography-of-vegetable-salad-on-plate-1640777.jpg
+│   │   │   ├── food-dinner-lunch-unhealthy-70497.jpg
+│   │   │   ├── food-plate-chocolate-dessert-132694.jpg
+│   │   │   ├── selective-focus-photography-of-beef-steak-with-sauce-675951.jpg
+│   │   │   ├── selective-focus-photography-of-pasta-with-tomato-and-basil-1279330.jpg
+│   │   │   ├── sliced-vegetable-and-cooked-food-on-white-ceramic-plate-1234535.jpg
+│   │   │   ├── steak-food-769289.jpg
+│   │   │   └── top-view-photo-of-food-dessert-1099680.jpg
+│   │   ├── index.html
+│   │   └── js
+│   │       ├── 01-chatty-events.js
+│   │       ├── 02-filter.js
+│   │       ├── 03-lazy-load.js
+│   │       └── 04-lazysizes.js
+│   ├── multiplication_table.txt
+│   ├── multi_tab.js
+│   ├── objects
+│   │   ├── 01-1-creation.js
+│   │   ├── 01-2-methods.js
+│   │   ├── 01-3-iteration.js
+│   │   ├── 02-friends.js
+│   │   ├── 03-cart.js
+│   │   ├── functions
+│   │   │   ├── 01-basics.js
+│   │   │   ├── 02-calculate-price.js
+│   │   │   ├── 03-log-items.js
+│   │   │   ├── 04-find-login.js
+│   │   │   ├── 05-smallest-number.js
+│   │   │   ├── 06-change-cases.js
+│   │   │   ├── 07-slugify.js
+│   │   │   ├── 08-arguments.js
+│   │   │   └── index.html
+│   │   ├── index.html
+│   │   └── objects_1
+│   │       ├── 01-spread.js
+│   │       ├── 02-destructuring.js
+│   │       ├── 03-markup.js
+│   │       ├── 04-cart.js
+│   │       └── index.html
+│   ├── prototypes
+│   │   ├── 01-object-prototype.js
+│   │   ├── 02-constructors.js
+│   │   ├── 03-counter.js
+│   │   └── index.html
+│   ├── quests
+│   │   ├── largest_triangle.js
+│   │   └── sum_of_nums.js
+│   ├── scratch
+│   │   └── roman-numerals.js
+│   ├── Scripts
+│   │   ├── alert_prompt_confirm.js
+│   │   ├── Arrays.js
+│   │   ├── Callback.js
+│   │   ├── DataTypes.js
+│   │   ├── functions
+│   │   │   ├── exercises.js
+│   │   │   ├── func_arrow.js
+│   │   │   ├── func_decl_expr.js
+│   │   │   └── func.js
+│   │   ├── index.html
+│   │   ├── loops
+│   │   │   ├── doWhileFor_break-continue.js
+│   │   │   ├── exercises.js
+│   │   │   ├── Loops.js
+│   │   │   ├── Loops.mmd
+│   │   │   └── switch_case.js
+│   │   ├── Math.js
+│   │   ├── Middleware.js
+│   │   ├── Objects.js
+│   │   ├── Recursion.js
+│   │   ├── Strings.js
+│   │   └── Variables.js
+│   ├── this
+│   │   ├── 01-this.js
+│   │   ├── 02-fn-methods.js
+│   │   ├── 03-counter.js
+│   │   └── index.html
+│   └── tutorial-lections
+│       ├── closure.js
+│       ├── database_array_objects.js
+│       ├── DOM-prop-attributes.js
+│       ├── events.js
+│       ├── fCC.js
+│       ├── index.html
+│       └── OOP.js
+├── js_task
+│   └── projects
+│       └── task-manager
+│           ├── css
+│           │   └── style.css
+│           ├── index.html
+│           ├── js
+│           │   └── level1
+│           │       └── app.js
+│           └── README.md
+├── LEARNING_ROADMAP.md
+├── nested_projects
+│   ├── CEC
+│   │   ├── Hub.tsx
+│   │   ├── public
+│   │   │   └── index.html
+│   │   ├── ships
+│   │   │   └── USG_Ishimura
+│   │   │       ├── bridge
+│   │   │       │   ├── pipe
+│   │   │       │   │   └── pipe.ts
+│   │   │       │   ├── routes
+│   │   │       │   │   ├── engineers.route.ts
+│   │   │       │   │   ├── index.routes.ts
+│   │   │       │   │   ├── miners.route.ts
+│   │   │       │   │   └── scientists.route.ts
+│   │   │       │   └── server
+│   │   │       │       └── server.ts
+│   │   │       ├── crew
+│   │   │       │   ├── CEC.interface.ts
+│   │   │       │   ├── CEC.schema.ts
+│   │   │       │   ├── components
+│   │   │       │   │   ├── Engineers.jsx
+│   │   │       │   │   ├── Miners.jsx
+│   │   │       │   │   └── Scientists.jsx
+│   │   │       │   ├── controllers
+│   │   │       │   │   ├── engineer.controller.ts
+│   │   │       │   │   ├── miner.controller.ts
+│   │   │       │   │   └── scientist.controller.ts
+│   │   │       │   ├── models
+│   │   │       │   │   ├── engineer.model.ts
+│   │   │       │   │   ├── miner.model.ts
+│   │   │       │   │   └── scientist.model.ts
+│   │   │       │   └── scripts
+│   │   │       │       ├── fetchers
+│   │   │       │       │   ├── fetchEngineers.js
+│   │   │       │       │   ├── fetchMiners.js
+│   │   │       │       │   └── fetchScientists.js
+│   │   │       │       └── helpers
+│   │   │       │           ├── cert_eq.js
+│   │   │       │           ├── override_index.js
+│   │   │       │           ├── renderEngineers.js
+│   │   │       │           ├── renderMiners.js
+│   │   │       │           └── renderScientists.js
+│   │   │       └── IshimuraDB.ts
+│   │   ├── src
+│   │   │   ├── App.js
+│   │   │   ├── index.js
+│   │   │   ├── reportWebVitals.js
+│   │   │   └── setupTests.js
+│   │   └── styles
+│   │       ├── global.styles.css
+│   │       ├── index.css
+│   │       ├── styles.css
+│   │       ├── styles.css.map
+│   │       └── styles.scss
+│   ├── jest
+│   │   ├── pow.js
+│   │   └── pow.test.js
+│   ├── junior-task
+│   │   ├── index.html
+│   │   └── styles.css
+│   ├── JWT_token
+│   │   ├── api
+│   │   │   └── index.js
+│   │   ├── config
+│   │   │   └── config.js
+│   │   ├── JWT.js
+│   │   ├── server.js
+│   │   └── user.js
+│   ├── lazyloading
+│   │   ├── index.html
+│   │   └── styles.css
+│   ├── mock
+│   │   ├── mock.js
+│   │   ├── mock.ts
+│   │   ├── mockTypes.js
+│   │   └── mockTypes.ts
+│   ├── mongoose
+│   │   ├── api
+│   │   │   └── index.js
+│   │   ├── controller
+│   │   │   └── index.js
+│   │   ├── mongoose.js
+│   │   ├── server.js
+│   │   └── service
+│   │       ├── index.js
+│   │       └── schemas
+│   │           └── task.js
+│   ├── multer
+│   │   └── multer.js
+│   ├── nodemailer
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── public
+│   │   │   └── css
+│   │   │       └── styles.css
+│   │   ├── transporter.js
+│   │   └── views
+│   │       ├── contact.handlebars
+│   │       └── layouts
+│   │           └── main.handlebars
+│   ├── Pipe
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── Pipeline.js
+│   │   ├── Pipeline.test.js
+│   │   ├── Pipeline.ts
+│   │   ├── SWapiTypes.js
+│   │   └── SWapiTypes.ts
+│   ├── scrollLodash
+│   │   ├── index.html
+│   │   ├── lodash.js
+│   │   └── styles.css
+│   └── WebSockets
+│       ├── Chat
+│       │   ├── public
+│       │   │   ├── client.html
+│       │   │   └── main.js
+│       │   └── server.js
+│       ├── Socket.io
+│       │   ├── app.js
+│       │   └── public
+│       │       └── index.html
+│       └── WebSocket
+│           ├── client.html
+│           └── server.js
+├── nodemon.json
+├── package.json
+├── package-lock.json
+├── playground.js
+├── py_practices
+│   ├── ACSII_art.txt
+│   ├── ASCII_art.py
+│   ├── check_RAM.py
+│   ├── check_RAM.txt
+│   ├── internet_speed.py
+│   ├── internet_speed.txt
+│   ├── py_data_types.py
+│   ├── QR_wifi_code.png
+│   ├── QR_wifi_code.py
+│   ├── strings.py
+│   └── Voronoi_Crystal_World.py
+├── pyproject.toml
+├── README.md
+├── requirements.in
+├── requirements.txt
+├── SECURITY.md
+├── styles.css
+├── TASK_MANAGER_PROJECT.md
+├── tasks
+│   ├── task_1
+│   │   ├── css
+│   │   │   └── common.css
+│   │   ├── html
+│   │   │   ├── task-01.html
+│   │   │   ├── task-02.html
+│   │   │   ├── task-03.html
+│   │   │   ├── task-04.html
+│   │   │   ├── task-05.html
+│   │   │   ├── task-06.html
+│   │   │   ├── task-07.html
+│   │   │   ├── task-08.html
+│   │   │   ├── task-09.html
+│   │   │   └── task-10.html
+│   │   ├── index.html
+│   │   └── js
+│   │       ├── task-01.js
+│   │       ├── task-02.js
+│   │       ├── task-03.js
+│   │       ├── task-04.js
+│   │       ├── task-05.js
+│   │       ├── task-06.js
+│   │       ├── task-07.js
+│   │       ├── task-08.js
+│   │       ├── task-09.js
+│   │       └── task-10.js
+│   ├── task_2
+│   │   ├── 01-gallery.html
+│   │   ├── 02-lightbox.html
+│   │   ├── css
+│   │   │   ├── common.css
+│   │   │   └── styles.css
+│   │   ├── index.html
+│   │   └── js
+│   │       ├── 01-gallery.js
+│   │       ├── 02-lightbox.js
+│   │       └── gallery-items.js
+│   ├── task_3
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   └── src
+│   │       ├── 01-gallery.html
+│   │       ├── 02-video.html
+│   │       ├── 03-feedback.html
+│   │       ├── css
+│   │       │   ├── 01-gallery.css
+│   │       │   ├── 03-feedback.css
+│   │       │   └── common.css
+│   │       ├── index.html
+│   │       ├── index.js
+│   │       ├── js
+│   │       │   ├── 01-gallery.js
+│   │       │   ├── 02-video.js
+│   │       │   ├── 03-feedback.js
+│   │       │   └── gallery-items.js
+│   │       ├── partials
+│   │       │   └── example.html
+│   │       └── sass
+│   │           ├── _common.scss
+│   │           ├── _example.scss
+│   │           └── index.scss
+│   └── task_4
+│       ├── package.json
+│       ├── package-lock.json
+│       └── src
+│           ├── 01-color-switcher.html
+│           ├── 02-timer.html
+│           ├── 03-promises.html
+│           ├── css
+│           │   └── common.css
+│           ├── index.html
+│           └── js
+│               ├── 01-color-switcher.js
+│               ├── 02-timer.js
+│               └── 03-promises.js
+├── tree.txt
+├── tsconfig.check.json
+└── tsconfig.json
+
+160 directories, 565 files
+
+```
+
 ## Mermaid diagrams
 
 Diagrams are kept as standalone `.mmd` files next to the code they explain, so
