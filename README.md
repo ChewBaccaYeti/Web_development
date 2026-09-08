@@ -7,7 +7,7 @@
 [![Prettier](https://img.shields.io/badge/code_style-prettier-F7B93E?logo=prettier&logoColor=black)](https://prettier.io)
 [![License: ISC](https://img.shields.io/badge/license-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-Personal JavaScript practice field and hand-written reference database. Not one
+Personal web field and hand-written reference database. Not one
 app — a collection of independent modules exploring the language and the Node
 ecosystem, plus **39 classic algorithms implemented twice** (JavaScript and
 Python) for interview prep.
