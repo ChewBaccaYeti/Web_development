@@ -75,7 +75,7 @@
             </p>
             <p>
                 See more
-                <a target="_blank" href="https://freecatphotoapp.com">cat photos</a>
+                <a target="_blank" href="https://freecatphotoapp.com" rel="noopener">cat photos</a>
                 in our gallery.
             </p>
             <a href="https://freecatphotoapp.com">
@@ -204,7 +204,14 @@
 
         <button id="prompt-btn">Show Prompt</button>
         <p id="output"></p>
-        <script src="/js_practices/Scripts/Strings.js"></script>
+        <script src="/js_practices/Scripts/Strings.js">
+            const btn = document.getElementById("prompt-btn");
+            const output = document.getElementById("output");
+            btn.addEventListener("click", () => {
+                const userName = prompt("What is your name?", "Guest");
+                output.textContent = "Hello, " + userName + "!";
+            });
+        </script>
 
         <form method="POST" action="https://hotel-feedback.freecodecamp.org">
             <h1>Hotel Feedback Form</h1>
@@ -473,7 +480,7 @@
         </address>
         <section>
             No Copyright -
-            <a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp.org</a>
+            <a href="https://www.freecodecamp.org" target="_blank" rel="noopener">freeCodeCamp.org</a>
             <p>2<sup>2</sup> (2 squared) is 4.</p>
             <p>Monseigneur is often written as <strong>M<sup>gr</sup></strong>.</p>
             <p>CO<sub>2</sub></p>
