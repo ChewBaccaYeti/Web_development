@@ -1,4 +1,4 @@
-# JavaScript — sandbox & reference database
+# JavaScript reference database
 
 [![CI](https://github.com/ChewBaccaYeti/JavaScript/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/ChewBaccaYeti/JavaScript/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/ChewBaccaYeti/JavaScript/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/ChewBaccaYeti/JavaScript/actions/workflows/codeql.yml)
@@ -8,13 +8,12 @@
 [![License: ISC](https://img.shields.io/badge/license-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
 Personal web field and hand-written reference database. Not one
-app — a collection of independent modules exploring the language and the Node
+app but a collection of independent modules exploring the language and the Node
 ecosystem, plus **39 classic algorithms implemented twice** (JavaScript and
-Python) for interview prep.
+Python).
 
 The `js_practices/` topic folders follow a fixed house style: one named function
-per concept, an immediate call so the file runs standalone, and bilingual RU/EN
-comments.
+per concept, an immediate call so the file runs standalone, and bilingual comments.
 
 ## Table of contents
 
