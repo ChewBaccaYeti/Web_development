@@ -55,10 +55,10 @@ Browser exercises are plain `index.html` files — open them directly, no server
 needed:
 
 ```text
-js_practices/DOM/index.html
-js_practices/events/index.html
-js_practices/delegation/index.html
-js_practices/lazy-load/index.html
+js_practices/browser/dom/index.html
+js_practices/browser/events/index.html
+js_practices/browser/delegation/index.html
+js_practices/browser/lazy-load/index.html
 algorithms/visualization/index.html          # D3 algorithm visualiser
 ```
 
@@ -96,7 +96,7 @@ flowchart LR
     practices --> scripts["Scripts/<br/>core topic catalog"]
     practices --> oop["classes/ prototypes/<br/>this/ objects/"]
     practices --> fns["callback_closures/<br/>arrays/ quests/"]
-    practices --> dom["DOM/ events/<br/>delegation/ lazy-load/"]
+    practices --> dom["browser/<br/>dom/ events/<br/>delegation/ lazy-load/"]
     practices --> apps["apps/<br/>12 demo apps"]
 
     algos --> sortsearch["sorting/ searching/<br/>math/ strings/"]
@@ -107,7 +107,7 @@ flowchart LR
 
     nested --> servers["mongoose/ JWT_token/<br/>WebSockets/ multer/"]
     nested --> tooling["Pipe/ mock/<br/>nodemailer/ jest/"]
-    nested --> browser["scrollLodash/ lazyloading/<br/>junior-task/ CEC/"]
+    nested --> browser["scrollLodash/"]
 
     classDef ref fill:#0d1b2a,stroke:#4dd0e1,color:#d7e6ef
     classDef algo fill:#1a1408,stroke:#ffb03b,color:#ffb03b
@@ -152,19 +152,18 @@ covered methods at the bottom where one is present.
 
 ### Topic folders
 
-| Path                                           | Topic                                                                                                                       |
-| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `arrays/array_methods/`                        | Iteration methods in depth — `forEach`, `map`, `filter`, `find`, `every`/`some`, `reduce`, `sort`, `flat`, chaining, lodash |
-| `arrays/arrays_examples/`                      | 10 applied array exercises (payments, slug, register, cards, …)                                                             |
-| `objects/`                                     | Creation, methods, iteration, applied examples (friends, cart)                                                              |
-| `classes/`                                     | `class` syntax, `extends`/`super`/`instanceof`, OOP, `new`, getters/setters, private `#`                                    |
-| `prototypes/`                                  | Prototype chain, constructor functions, `Object.create`, `__proto__`                                                        |
-| `this/`                                        | Binding rules, method vs standalone, `call`/`apply`/`bind`, arrow lexical `this`                                            |
-| `callback_closures/`                           | Callbacks, closures (factories, private state, currying, counter, `var`/`let` loop trap), arrow fns                         |
-| `DOM/`, `events/`, `delegation/`, `lazy-load/` | Browser exercises, each driven by an `index.html` with `css/`, `js/` siblings                                               |
-| `quests/`                                      | Small algorithm challenges (largest triangle, sum of nums)                                                                  |
-| `tutorial-lections/`                           | Lecture notes — closures, OOP, DOM props vs attributes, events, fCC                                                         |
-| `scratch/`                                     | Loose experiments (`roman-numerals.js`, `check_RAM.py`)                                                                     |
+| Path                      | Topic                                                                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `arrays/array_methods/`   | Iteration methods in depth — `forEach`, `map`, `filter`, `find`, `every`/`some`, `reduce`, `sort`, `flat`, chaining, lodash    |
+| `arrays/arrays_examples/` | 10 applied array exercises (payments, slug, register, cards, …)                                                                |
+| `objects/`                | Creation, methods, iteration, applied examples (friends, cart, spread, destructuring, markup) + `exercises/` + `00-lecture.js` |
+| `classes/`                | `class` syntax, `extends`/`super`/`instanceof`, OOP, `new`, getters/setters, private `#` (+ `00-lecture.js`)                   |
+| `prototypes/`             | Prototype chain, constructor functions, `Object.create`, `__proto__`                                                           |
+| `this/`                   | Binding rules, method vs standalone, `call`/`apply`/`bind`, arrow lexical `this`                                               |
+| `callback_closures/`      | Callbacks, closures (factories, private state, currying, counter, `var`/`let` loop trap), arrow fns (+ `00-lecture.js`)        |
+| `browser/`                | DOM / events / delegation / lazy-load exercises, each driven by `index.html` with `css/`, `js/` siblings                       |
+| `quests/`                 | Small algorithm challenges (largest triangle, sum of nums)                                                                     |
+| `scratch/`                | Loose experiments (`roman-numerals.js`, `check_RAM.py`)                                                                        |
 
 ### `js_practices/apps/` — demo apps
 
@@ -215,20 +214,17 @@ npm run algo:pytest    # pytest over algorithms/tests/python
 
 ## `nested_projects/` — larger projects
 
-| Dir             | Stack / what it demonstrates                                                                                                        |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `mongoose/`     | Express + MongoDB REST API, split `api` / `controller` / `service`                                                                  |
-| `JWT_token/`    | JWT auth with `passport-jwt`, `api/` + `config/`                                                                                    |
-| `WebSockets/`   | Three variants — `Socket.io/`, raw `WebSocket/`, and a `Chat/` server                                                               |
-| `nodemailer/`   | Email via nodemailer + SendGrid + Handlebars views, own `package.json`                                                              |
-| `multer/`       | File upload handling                                                                                                                |
-| `Pipe/`         | Data pipeline over SWAPI, JS + TS, own `package.json` and Jest suite                                                                |
-| `mock/`         | Mock data generators, JS + TS pair                                                                                                  |
-| `jest/`         | Minimal standalone Jest example (`pow`)                                                                                             |
-| `CEC/`          | React + TypeScript `IshimuraDB` snapshot — the live version now lives in the [DS_API](https://github.com/ChewBaccaYeti/DS_API) repo |
-| `scrollLodash/` | Throttled scroll with lodash                                                                                                        |
-| `lazyloading/`  | Native lazy-loading experiment                                                                                                      |
-| `junior-task/`  | Static markup exercise                                                                                                              |
+| Dir             | Stack / what it demonstrates                                           |
+| --------------- | ---------------------------------------------------------------------- |
+| `mongoose/`     | Express + MongoDB REST API, split `api` / `controller` / `service`     |
+| `JWT_token/`    | JWT auth with `passport-jwt`, `api/` + `config/`                       |
+| `WebSockets/`   | Three variants — `Socket.io/`, raw `WebSocket/`, and a `Chat/` server  |
+| `nodemailer/`   | Email via nodemailer + SendGrid + Handlebars views, own `package.json` |
+| `multer/`       | File upload handling                                                   |
+| `Pipe/`         | Data pipeline over SWAPI, JS + TS, own `package.json` and Jest suite   |
+| `mock/`         | Mock data generators, JS + TS pair                                     |
+| `jest/`         | Minimal standalone Jest example (`pow`)                                |
+| `scrollLodash/` | Throttled scroll with lodash                                           |
 
 ## `tasks/` — front-end exercises
 
@@ -244,7 +240,7 @@ written to deploy under the repo's GitHub Pages path.
 
 ## Structure & Architecture
 
-```-
+```text
 .
 ├── algorithms
 │   ├── data_structures
@@ -303,7 +299,6 @@ written to deploy under the repo's GitHub Pages path.
 │   │   ├── prime.py
 │   │   ├── sieve.js
 │   │   └── sieve.py
-│   ├── README.md
 │   ├── searching
 │   │   ├── binary.js
 │   │   ├── binary.py
@@ -349,57 +344,52 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   ├── test_searching.py
 │   │   │   └── test_sorting.py
 │   │   └── README.md
-│   └── visualization
-│       ├── binary_tree.js
-│       ├── index.html
-│       ├── linked_list.js
-│       └── styles.css
-├── babel.config.json
-├── CLAUDE.md
-├── index.html
+│   ├── visualization
+│   │   ├── binary_tree.js
+│   │   ├── index.html
+│   │   ├── linked_list.js
+│   │   └── styles.css
+│   └── README.md
 ├── js_practices
-│   ├── alert_prompt_confirm.js
 │   ├── apps
 │   │   ├── async
-│   │   │   ├── package.json
-│   │   │   ├── package-lock.json
-│   │   │   └── src
-│   │   │       ├── 01-timeout.html
-│   │   │       ├── 02-interval.html
-│   │   │       ├── 03-notification.html
-│   │   │       ├── 04-subscription.html
-│   │   │       ├── 05-date.html
-│   │   │       ├── 06-timer.html
-│   │   │       ├── css
-│   │   │       │   └── common.css
-│   │   │       ├── index.html
-│   │   │       ├── index.js
-│   │   │       └── js
-│   │   │           ├── 01-timeout.js
-│   │   │           ├── 02-interval.js
-│   │   │           ├── 03-notification.js
-│   │   │           ├── 04-subscription.js
-│   │   │           ├── 05-date.js
-│   │   │           └── 06-timer.js
+│   │   │   ├── src
+│   │   │   │   ├── css
+│   │   │   │   │   └── common.css
+│   │   │   │   ├── js
+│   │   │   │   │   ├── 01-timeout.js
+│   │   │   │   │   ├── 02-interval.js
+│   │   │   │   │   ├── 03-notification.js
+│   │   │   │   │   ├── 04-subscription.js
+│   │   │   │   │   ├── 05-date.js
+│   │   │   │   │   └── 06-timer.js
+│   │   │   │   ├── 01-timeout.html
+│   │   │   │   ├── 02-interval.html
+│   │   │   │   ├── 03-notification.html
+│   │   │   │   ├── 04-subscription.html
+│   │   │   │   ├── 05-date.html
+│   │   │   │   ├── 06-timer.html
+│   │   │   │   ├── index.html
+│   │   │   │   └── index.js
+│   │   │   └── package.json
 │   │   ├── async-await
+│   │   │   ├── src
+│   │   │   │   ├── css
+│   │   │   │   │   └── common.css
+│   │   │   │   ├── js
+│   │   │   │   │   ├── 01-try-catch.js
+│   │   │   │   │   ├── 02-json-parse.js
+│   │   │   │   │   ├── 03-async.js
+│   │   │   │   │   ├── async-crud.js
+│   │   │   │   │   ├── crud.js
+│   │   │   │   │   └── ui.js
+│   │   │   │   ├── 01-try-catch.html
+│   │   │   │   ├── 02-json-parse.html
+│   │   │   │   ├── 03-async.html
+│   │   │   │   ├── index.html
+│   │   │   │   └── index.js
 │   │   │   ├── db.json
-│   │   │   ├── package.json
-│   │   │   ├── package-lock.json
-│   │   │   └── src
-│   │   │       ├── 01-try-catch.html
-│   │   │       ├── 02-json-parse.html
-│   │   │       ├── 03-async.html
-│   │   │       ├── css
-│   │   │       │   └── common.css
-│   │   │       ├── index.html
-│   │   │       ├── index.js
-│   │   │       └── js
-│   │   │           ├── 01-try-catch.js
-│   │   │           ├── 02-json-parse.js
-│   │   │           ├── 03-async.js
-│   │   │           ├── async-crud.js
-│   │   │           ├── crud.js
-│   │   │           └── ui.js
+│   │   │   └── package.json
 │   │   ├── colorPalette
 │   │   │   ├── index.html
 │   │   │   ├── palette.js
@@ -407,122 +397,109 @@ written to deploy under the repo's GitHub Pages path.
 │   │   ├── crewings
 │   │   │   ├── crewings_email.js
 │   │   │   ├── emails_filtration.js
-│   │   │   ├── emails.txt
-│   │   │   ├── ua_crewings_emails.js
-│   │   │   ├── ua_emails_unique.txt
-│   │   │   └── ua_email.txt
+│   │   │   └── ua_crewings_emails.js
 │   │   ├── CRUD
+│   │   │   ├── src
+│   │   │   │   ├── css
+│   │   │   │   │   └── common.css
+│   │   │   │   ├── js
+│   │   │   │   │   ├── C - POST.js
+│   │   │   │   │   ├── D - DELETE.js
+│   │   │   │   │   ├── R - GET.js
+│   │   │   │   │   └── U - PATCH.js
+│   │   │   │   ├── index.html
+│   │   │   │   └── index.js
 │   │   │   ├── db.json
-│   │   │   ├── package.json
-│   │   │   ├── package-lock.json
-│   │   │   └── src
-│   │   │       ├── css
-│   │   │       │   └── common.css
-│   │   │       ├── index.html
-│   │   │       ├── index.js
-│   │   │       └── js
-│   │   │           ├── C - POST.js
-│   │   │           ├── D - DELETE.js
-│   │   │           ├── R - GET.js
-│   │   │           └── U - PATCH.js
+│   │   │   └── package.json
 │   │   ├── football-game
 │   │   │   ├── football.css
 │   │   │   ├── football.html
 │   │   │   └── football.js
 │   │   ├── http-requests
-│   │   │   ├── package.json
-│   │   │   ├── package-lock.json
-│   │   │   └── src
-│   │   │       ├── 01-fetch-api.html
-│   │   │       ├── 02-cors.html
-│   │   │       ├── css
-│   │   │       │   └── common.css
-│   │   │       ├── index.html
-│   │   │       ├── index.js
-│   │   │       ├── js
-│   │   │       │   ├── 01-fetch-api.js
-│   │   │       │   ├── 02-cors.js
-│   │   │       │   ├── api-service.js
-│   │   │       │   └── get-refs.js
-│   │   │       └── templates
-│   │   │           └── pokemon-card.hbs
+│   │   │   ├── src
+│   │   │   │   ├── css
+│   │   │   │   │   └── common.css
+│   │   │   │   ├── js
+│   │   │   │   │   ├── 01-fetch-api.js
+│   │   │   │   │   ├── 02-cors.js
+│   │   │   │   │   ├── api-service.js
+│   │   │   │   │   └── get-refs.js
+│   │   │   │   ├── templates
+│   │   │   │   │   └── pokemon-card.hbs
+│   │   │   │   ├── 01-fetch-api.html
+│   │   │   │   ├── 02-cors.html
+│   │   │   │   ├── index.html
+│   │   │   │   └── index.js
+│   │   │   └── package.json
 │   │   ├── localStorage
-│   │   │   ├── package.json
-│   │   │   ├── package-lock.json
-│   │   │   └── src
-│   │   │       ├── 01-localstorage.html
-│   │   │       ├── 02-feedback.html
-│   │   │       ├── 03-colorpicker.html
-│   │   │       ├── 04-gallery.html
-│   │   │       ├── css
-│   │   │       │   ├── colorpicker.css
-│   │   │       │   ├── common.css
-│   │   │       │   ├── feedback-form.css
-│   │   │       │   └── gallery.css
-│   │   │       ├── index.html
-│   │   │       ├── index.js
-│   │   │       ├── js
-│   │   │       │   ├── 01-localstorage.js
-│   │   │       │   ├── 02-feedback.js
-│   │   │       │   ├── 03-colorpicker.js
-│   │   │       │   ├── 04-gallery.js
-│   │   │       │   ├── colors.json
-│   │   │       │   └── countries.json
-│   │   │       ├── storage.js
-│   │   │       └── templates
-│   │   │           ├── color-card.hbs
-│   │   │           ├── color-cards.hbs
-│   │   │           └── gallery-items.hbs
+│   │   │   ├── src
+│   │   │   │   ├── css
+│   │   │   │   │   ├── colorpicker.css
+│   │   │   │   │   ├── common.css
+│   │   │   │   │   ├── feedback-form.css
+│   │   │   │   │   └── gallery.css
+│   │   │   │   ├── js
+│   │   │   │   │   ├── 01-localstorage.js
+│   │   │   │   │   ├── 02-feedback.js
+│   │   │   │   │   ├── 03-colorpicker.js
+│   │   │   │   │   ├── 04-gallery.js
+│   │   │   │   │   ├── colors.json
+│   │   │   │   │   └── countries.json
+│   │   │   │   ├── templates
+│   │   │   │   │   ├── color-card.hbs
+│   │   │   │   │   ├── color-cards.hbs
+│   │   │   │   │   └── gallery-items.hbs
+│   │   │   │   ├── 01-localstorage.html
+│   │   │   │   ├── 02-feedback.html
+│   │   │   │   ├── 03-colorpicker.html
+│   │   │   │   ├── 04-gallery.html
+│   │   │   │   ├── index.html
+│   │   │   │   ├── index.js
+│   │   │   │   └── storage.js
+│   │   │   └── package.json
 │   │   ├── npm
+│   │   │   ├── src
+│   │   │   │   ├── jest
+│   │   │   │   │   ├── sum.js
+│   │   │   │   │   └── sum.test.js
+│   │   │   │   ├── js
+│   │   │   │   │   ├── api-service.js
+│   │   │   │   │   ├── server.js
+│   │   │   │   │   ├── validateJoiPassword.js
+│   │   │   │   │   └── validator.js
+│   │   │   │   └── app.js
 │   │   │   ├── index.html
 │   │   │   ├── index.js
-│   │   │   ├── package.json
-│   │   │   ├── package-lock.json
-│   │   │   └── src
-│   │   │       ├── app.js
-│   │   │       ├── jest
-│   │   │       │   ├── sum.js
-│   │   │       │   └── sum.test.js
-│   │   │       └── js
-│   │   │           ├── api-service.js
-│   │   │           ├── server.js
-│   │   │           ├── validateJoiPassword.js
-│   │   │           └── validator.js
+│   │   │   └── package.json
 │   │   ├── pagination
-│   │   │   ├── package.json
-│   │   │   ├── package-lock.json
-│   │   │   └── src
-│   │   │       ├── css
-│   │   │       │   └── common.css
-│   │   │       ├── fetchKeysParamsNewsAPI.js
-│   │   │       ├── index.html
-│   │   │       ├── index.js
-│   │   │       ├── js
-│   │   │       │   ├── components
-│   │   │       │   │   └── load-more-btn.js
-│   │   │       │   └── news-service.js
-│   │   │       └── templates
-│   │   │           └── articles.hbs
+│   │   │   ├── src
+│   │   │   │   ├── css
+│   │   │   │   │   └── common.css
+│   │   │   │   ├── js
+│   │   │   │   │   ├── components
+│   │   │   │   │   │   └── load-more-btn.js
+│   │   │   │   │   └── news-service.js
+│   │   │   │   ├── templates
+│   │   │   │   │   └── articles.hbs
+│   │   │   │   ├── fetchKeysParamsNewsAPI.js
+│   │   │   │   ├── index.html
+│   │   │   │   └── index.js
+│   │   │   └── package.json
 │   │   ├── promises
-│   │   │   ├── package.json
-│   │   │   ├── package-lock.json
-│   │   │   └── src
-│   │   │       ├── 01-promise-api.html
-│   │   │       ├── 02-promisification.html
-│   │   │       ├── 03-racetrack.html
-│   │   │       ├── css
-│   │   │       │   └── common.css
-│   │   │       ├── index.html
-│   │   │       ├── index.js
-│   │   │       └── js
-│   │   │           ├── 01-promise-api.js
-│   │   │           ├── 02-promisification.js
-│   │   │           └── 03-racetrack.js
+│   │   │   ├── src
+│   │   │   │   ├── css
+│   │   │   │   │   └── common.css
+│   │   │   │   ├── js
+│   │   │   │   │   ├── 01-promise-api.js
+│   │   │   │   │   ├── 02-promisification.js
+│   │   │   │   │   └── 03-racetrack.js
+│   │   │   │   ├── 01-promise-api.html
+│   │   │   │   ├── 02-promisification.html
+│   │   │   │   ├── 03-racetrack.html
+│   │   │   │   ├── index.html
+│   │   │   │   └── index.js
+│   │   │   └── package.json
 │   │   └── webpack
-│   │       ├── babel.config.json
-│   │       ├── index.html
-│   │       ├── package.json
-│   │       ├── package-lock.json
 │   │       ├── src
 │   │       │   ├── css
 │   │       │   │   ├── button.scss
@@ -530,6 +507,11 @@ written to deploy under the repo's GitHub Pages path.
 │   │       │   │   ├── landing.scss
 │   │       │   │   └── main.scss
 │   │       │   └── index.js
+│   │       ├── .gitignore
+│   │       ├── .prettierrc.json
+│   │       ├── babel.config.json
+│   │       ├── index.html
+│   │       ├── package.json
 │   │       └── webpack.config.js
 │   ├── arrays
 │   │   ├── array_methods
@@ -545,8 +527,8 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   ├── 10-lodash.js
 │   │   │   └── index.html
 │   │   ├── arrays_examples
-│   │   │   ├── 10-cards.js
 │   │   │   ├── 1-basics.js
+│   │   │   ├── 10-cards.js
 │   │   │   ├── 2-paymnet.js
 │   │   │   ├── 3-even.js
 │   │   │   ├── 4-find-login.js
@@ -556,12 +538,105 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   ├── 8-slug.js
 │   │   │   └── 9-array-sum.js
 │   │   └── index.html
+│   ├── browser
+│   │   ├── delegation
+│   │   │   ├── css
+│   │   │   │   ├── colorpicker.css
+│   │   │   │   └── styles.css
+│   │   │   ├── html
+│   │   │   │   ├── 01-bubbling.html
+│   │   │   │   ├── 02-delegation.html
+│   │   │   │   ├── 03-tags.html
+│   │   │   │   └── 04-colorpicker.html
+│   │   │   ├── js
+│   │   │   │   ├── 01-bubbling.js
+│   │   │   │   ├── 02-delegation.js
+│   │   │   │   ├── 03-tags.js
+│   │   │   │   └── 04-colorpicker.js
+│   │   │   └── index.html
+│   │   ├── dom
+│   │   │   ├── css
+│   │   │   │   └── style.css
+│   │   │   ├── html
+│   │   │   │   ├── 01-query-selectors.html
+│   │   │   │   ├── 02-properties.html
+│   │   │   │   ├── 03-classlist.html
+│   │   │   │   ├── 04-dom-traversal.html
+│   │   │   │   ├── 05-creating-elements.html
+│   │   │   │   ├── 06-collections.html
+│   │   │   │   ├── 07-products.html
+│   │   │   │   ├── 08-templating.html
+│   │   │   │   └── 09-transactions.html
+│   │   │   ├── js
+│   │   │   │   ├── data
+│   │   │   │   │   ├── products.js
+│   │   │   │   │   └── transactions.js
+│   │   │   │   ├── 00-lecture.js
+│   │   │   │   ├── 01-query-selectors.js
+│   │   │   │   ├── 02-properties.js
+│   │   │   │   ├── 03-classlist.js
+│   │   │   │   ├── 04-dom-traversal.js
+│   │   │   │   ├── 05-creating-elements.js
+│   │   │   │   ├── 06-collections.js
+│   │   │   │   ├── 07-products.js
+│   │   │   │   ├── 08-templating.js
+│   │   │   │   └── 09-transactions.js
+│   │   │   └── index.html
+│   │   ├── events
+│   │   │   ├── css
+│   │   │   │   ├── modal.css
+│   │   │   │   └── styles.css
+│   │   │   ├── html
+│   │   │   │   ├── 01-event-listeners.html
+│   │   │   │   ├── 02-forms.html
+│   │   │   │   ├── 03-input-events.html
+│   │   │   │   ├── 04-keyboard-events.html
+│   │   │   │   ├── 05-mouse-events.html
+│   │   │   │   └── 06-modal.html
+│   │   │   ├── js
+│   │   │   │   ├── 00-lecture.js
+│   │   │   │   ├── 01-event-listeners.js
+│   │   │   │   ├── 02-forms.js
+│   │   │   │   ├── 03-input-events.js
+│   │   │   │   ├── 04-keyboard-events.js
+│   │   │   │   ├── 05-mouse-events.js
+│   │   │   │   └── 06-modal.js
+│   │   │   └── index.html
+│   │   └── lazy-load
+│   │       ├── css
+│   │       │   └── styles.css
+│   │       ├── html
+│   │       │   ├── 01-chatty-events.html
+│   │       │   ├── 02-filter.html
+│   │       │   ├── 03-lazy-load.html
+│   │       │   └── 04-lazysizes.html
+│   │       ├── images
+│   │       │   ├── avocado-cooked-delicious-dish-262959.jpg
+│   │       │   ├── black-frying-pan-with-spaghetti-sauce-near-brown-wooden-691114.jpg
+│   │       │   ├── blueberries-cake-chocolate-chocolate-cake-291528.jpg
+│   │       │   ├── blur-breakfast-close-up-dairy-product-376464.jpg
+│   │       │   ├── flat-lay-photography-of-vegetable-salad-on-plate-1640777.jpg
+│   │       │   ├── food-dinner-lunch-unhealthy-70497.jpg
+│   │       │   ├── food-plate-chocolate-dessert-132694.jpg
+│   │       │   ├── selective-focus-photography-of-beef-steak-with-sauce-675951.jpg
+│   │       │   ├── selective-focus-photography-of-pasta-with-tomato-and-basil-1279330.jpg
+│   │       │   ├── sliced-vegetable-and-cooked-food-on-white-ceramic-plate-1234535.jpg
+│   │       │   ├── steak-food-769289.jpg
+│   │       │   └── top-view-photo-of-food-dessert-1099680.jpg
+│   │       ├── js
+│   │       │   ├── 01-chatty-events.js
+│   │       │   ├── 02-filter.js
+│   │       │   ├── 03-lazy-load.js
+│   │       │   └── 04-lazysizes.js
+│   │       └── index.html
 │   ├── callback_closures
+│   │   ├── 00-lecture.js
 │   │   ├── 01-callbacks.js
 │   │   ├── 02-closures.js
 │   │   ├── 03-arrow-fns.js
 │   │   └── index.html
 │   ├── classes
+│   │   ├── 00-lecture.js
 │   │   ├── 01-class.js
 │   │   ├── 02-inheritance.js
 │   │   ├── 02-inheritance.mmd
@@ -570,104 +645,8 @@ written to deploy under the repo's GitHub Pages path.
 │   │   ├── 05-class_reference.js
 │   │   ├── data.json
 │   │   └── index.html
-│   ├── counters-iterations.js
-│   ├── delegation
-│   │   ├── css
-│   │   │   ├── colorpicker.css
-│   │   │   └── styles.css
-│   │   ├── html
-│   │   │   ├── 01-bubbling.html
-│   │   │   ├── 02-delegation.html
-│   │   │   ├── 03-tags.html
-│   │   │   └── 04-colorpicker.html
-│   │   ├── index.html
-│   │   └── js
-│   │       ├── 01-bubbling.js
-│   │       ├── 02-delegation.js
-│   │       ├── 03-tags.js
-│   │       └── 04-colorpicker.js
-│   ├── DOM
-│   │   ├── css
-│   │   │   └── style.css
-│   │   ├── html
-│   │   │   ├── 01-query-selectors.html
-│   │   │   ├── 02-properties.html
-│   │   │   ├── 03-classlist.html
-│   │   │   ├── 04-dom-traversal.html
-│   │   │   ├── 05-creating-elements.html
-│   │   │   ├── 06-collections.html
-│   │   │   ├── 07-products.html
-│   │   │   ├── 08-templating.html
-│   │   │   └── 09-transactions.html
-│   │   ├── index.html
-│   │   └── js
-│   │       ├── 01-query-selectors.js
-│   │       ├── 02-properties.js
-│   │       ├── 03-classlist.js
-│   │       ├── 04-dom-traversal.js
-│   │       ├── 05-creating-elements.js
-│   │       ├── 06-collections.js
-│   │       ├── 07-products.js
-│   │       ├── 08-templating.js
-│   │       ├── 09-transactions.js
-│   │       └── data
-│   │           ├── products.js
-│   │           └── transactions.js
-│   ├── events
-│   │   ├── css
-│   │   │   ├── modal.css
-│   │   │   └── styles.css
-│   │   ├── html
-│   │   │   ├── 01-event-listeners.html
-│   │   │   ├── 02-forms.html
-│   │   │   ├── 03-input-events.html
-│   │   │   ├── 04-keyboard-events.html
-│   │   │   ├── 05-mouse-events.html
-│   │   │   └── 06-modal.html
-│   │   ├── index.html
-│   │   └── js
-│   │       ├── 01-event-listeners.js
-│   │       ├── 02-forms.js
-│   │       ├── 03-input-events.js
-│   │       ├── 04-keyboard-events.js
-│   │       ├── 05-mouse-events.js
-│   │       └── 06-modal.js
-│   ├── lazy-load
-│   │   ├── css
-│   │   │   └── styles.css
-│   │   ├── html
-│   │   │   ├── 01-chatty-events.html
-│   │   │   ├── 02-filter.html
-│   │   │   ├── 03-lazy-load.html
-│   │   │   └── 04-lazysizes.html
-│   │   ├── images
-│   │   │   ├── avocado-cooked-delicious-dish-262959.jpg
-│   │   │   ├── black-frying-pan-with-spaghetti-sauce-near-brown-wooden-691114.jpg
-│   │   │   ├── blueberries-cake-chocolate-chocolate-cake-291528.jpg
-│   │   │   ├── blur-breakfast-close-up-dairy-product-376464.jpg
-│   │   │   ├── flat-lay-photography-of-vegetable-salad-on-plate-1640777.jpg
-│   │   │   ├── food-dinner-lunch-unhealthy-70497.jpg
-│   │   │   ├── food-plate-chocolate-dessert-132694.jpg
-│   │   │   ├── selective-focus-photography-of-beef-steak-with-sauce-675951.jpg
-│   │   │   ├── selective-focus-photography-of-pasta-with-tomato-and-basil-1279330.jpg
-│   │   │   ├── sliced-vegetable-and-cooked-food-on-white-ceramic-plate-1234535.jpg
-│   │   │   ├── steak-food-769289.jpg
-│   │   │   └── top-view-photo-of-food-dessert-1099680.jpg
-│   │   ├── index.html
-│   │   └── js
-│   │       ├── 01-chatty-events.js
-│   │       ├── 02-filter.js
-│   │       ├── 03-lazy-load.js
-│   │       └── 04-lazysizes.js
-│   ├── multiplication_table.txt
-│   ├── multi_tab.js
 │   ├── objects
-│   │   ├── 01-1-creation.js
-│   │   ├── 01-2-methods.js
-│   │   ├── 01-3-iteration.js
-│   │   ├── 02-friends.js
-│   │   ├── 03-cart.js
-│   │   ├── functions
+│   │   ├── exercises
 │   │   │   ├── 01-basics.js
 │   │   │   ├── 02-calculate-price.js
 │   │   │   ├── 03-log-items.js
@@ -677,13 +656,16 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   ├── 07-slugify.js
 │   │   │   ├── 08-arguments.js
 │   │   │   └── index.html
-│   │   ├── index.html
-│   │   └── objects_1
-│   │       ├── 01-spread.js
-│   │       ├── 02-destructuring.js
-│   │       ├── 03-markup.js
-│   │       ├── 04-cart.js
-│   │       └── index.html
+│   │   ├── 00-lecture.js
+│   │   ├── 01-creation.js
+│   │   ├── 02-methods.js
+│   │   ├── 03-iteration.js
+│   │   ├── 04-friends.js
+│   │   ├── 05-cart.js
+│   │   ├── 06-spread.js
+│   │   ├── 07-destructuring.js
+│   │   ├── 08-markup.js
+│   │   └── index.html
 │   ├── prototypes
 │   │   ├── 01-object-prototype.js
 │   │   ├── 02-constructors.js
@@ -691,26 +673,23 @@ written to deploy under the repo's GitHub Pages path.
 │   │   └── index.html
 │   ├── quests
 │   │   ├── largest_triangle.js
+│   │   ├── roman-numerals.js
 │   │   └── sum_of_nums.js
-│   ├── scratch
-│   │   └── roman-numerals.js
 │   ├── Scripts
-│   │   ├── alert_prompt_confirm.js
-│   │   ├── Arrays.js
-│   │   ├── Callback.js
-│   │   ├── DataTypes.js
 │   │   ├── functions
-│   │   │   ├── exercises.js
 │   │   │   ├── func_arrow.js
 │   │   │   ├── func_decl_expr.js
 │   │   │   └── func.js
-│   │   ├── index.html
 │   │   ├── loops
 │   │   │   ├── doWhileFor_break-continue.js
-│   │   │   ├── exercises.js
 │   │   │   ├── Loops.js
 │   │   │   ├── Loops.mmd
 │   │   │   └── switch_case.js
+│   │   ├── Arrays.js
+│   │   ├── Callback.js
+│   │   ├── DataTypes.js
+│   │   ├── fCC-notes.js
+│   │   ├── index.html
 │   │   ├── Math.js
 │   │   ├── Middleware.js
 │   │   ├── Objects.js
@@ -722,86 +701,13 @@ written to deploy under the repo's GitHub Pages path.
 │   │   ├── 02-fn-methods.js
 │   │   ├── 03-counter.js
 │   │   └── index.html
-│   └── tutorial-lections
-│       ├── closure.js
-│       ├── database_array_objects.js
-│       ├── DOM-prop-attributes.js
-│       ├── events.js
-│       ├── fCC.js
-│       ├── index.html
-│       └── OOP.js
-├── js_task
-│   └── projects
-│       └── task-manager
-│           ├── css
-│           │   └── style.css
-│           ├── index.html
-│           ├── js
-│           │   └── level1
-│           │       └── app.js
-│           └── README.md
-├── LEARNING_ROADMAP.md
+│   ├── alert_prompt_confirm.js
+│   ├── counters-iterations.js
+│   └── multi_tab.js
 ├── nested_projects
-│   ├── CEC
-│   │   ├── Hub.tsx
-│   │   ├── public
-│   │   │   └── index.html
-│   │   ├── ships
-│   │   │   └── USG_Ishimura
-│   │   │       ├── bridge
-│   │   │       │   ├── pipe
-│   │   │       │   │   └── pipe.ts
-│   │   │       │   ├── routes
-│   │   │       │   │   ├── engineers.route.ts
-│   │   │       │   │   ├── index.routes.ts
-│   │   │       │   │   ├── miners.route.ts
-│   │   │       │   │   └── scientists.route.ts
-│   │   │       │   └── server
-│   │   │       │       └── server.ts
-│   │   │       ├── crew
-│   │   │       │   ├── CEC.interface.ts
-│   │   │       │   ├── CEC.schema.ts
-│   │   │       │   ├── components
-│   │   │       │   │   ├── Engineers.jsx
-│   │   │       │   │   ├── Miners.jsx
-│   │   │       │   │   └── Scientists.jsx
-│   │   │       │   ├── controllers
-│   │   │       │   │   ├── engineer.controller.ts
-│   │   │       │   │   ├── miner.controller.ts
-│   │   │       │   │   └── scientist.controller.ts
-│   │   │       │   ├── models
-│   │   │       │   │   ├── engineer.model.ts
-│   │   │       │   │   ├── miner.model.ts
-│   │   │       │   │   └── scientist.model.ts
-│   │   │       │   └── scripts
-│   │   │       │       ├── fetchers
-│   │   │       │       │   ├── fetchEngineers.js
-│   │   │       │       │   ├── fetchMiners.js
-│   │   │       │       │   └── fetchScientists.js
-│   │   │       │       └── helpers
-│   │   │       │           ├── cert_eq.js
-│   │   │       │           ├── override_index.js
-│   │   │       │           ├── renderEngineers.js
-│   │   │       │           ├── renderMiners.js
-│   │   │       │           └── renderScientists.js
-│   │   │       └── IshimuraDB.ts
-│   │   ├── src
-│   │   │   ├── App.js
-│   │   │   ├── index.js
-│   │   │   ├── reportWebVitals.js
-│   │   │   └── setupTests.js
-│   │   └── styles
-│   │       ├── global.styles.css
-│   │       ├── index.css
-│   │       ├── styles.css
-│   │       ├── styles.css.map
-│   │       └── styles.scss
 │   ├── jest
 │   │   ├── pow.js
 │   │   └── pow.test.js
-│   ├── junior-task
-│   │   ├── index.html
-│   │   └── styles.css
 │   ├── JWT_token
 │   │   ├── api
 │   │   │   └── index.js
@@ -810,9 +716,6 @@ written to deploy under the repo's GitHub Pages path.
 │   │   ├── JWT.js
 │   │   ├── server.js
 │   │   └── user.js
-│   ├── lazyloading
-│   │   ├── index.html
-│   │   └── styles.css
 │   ├── mock
 │   │   ├── mock.js
 │   │   ├── mock.ts
@@ -823,29 +726,27 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   └── index.js
 │   │   ├── controller
 │   │   │   └── index.js
-│   │   ├── mongoose.js
-│   │   ├── server.js
-│   │   └── service
-│   │       ├── index.js
-│   │       └── schemas
-│   │           └── task.js
+│   │   ├── service
+│   │   │   ├── schemas
+│   │   │   │   └── task.js
+│   │   │   └── index.js
+│   │   └── server.js
 │   ├── multer
 │   │   └── multer.js
 │   ├── nodemailer
-│   │   ├── package.json
-│   │   ├── package-lock.json
 │   │   ├── public
 │   │   │   └── css
 │   │   │       └── styles.css
-│   │   ├── transporter.js
-│   │   └── views
-│   │       ├── contact.handlebars
-│   │       └── layouts
-│   │           └── main.handlebars
+│   │   ├── views
+│   │   │   ├── layouts
+│   │   │   │   └── main.handlebars
+│   │   │   └── contact.handlebars
+│   │   ├── .env.example
+│   │   ├── package.json
+│   │   └── transporter.js
 │   ├── Pipe
 │   │   ├── index.html
 │   │   ├── package.json
-│   │   ├── package-lock.json
 │   │   ├── Pipeline.js
 │   │   ├── Pipeline.test.js
 │   │   ├── Pipeline.ts
@@ -862,35 +763,21 @@ written to deploy under the repo's GitHub Pages path.
 │       │   │   └── main.js
 │       │   └── server.js
 │       ├── Socket.io
-│       │   ├── app.js
-│       │   └── public
-│       │       └── index.html
+│       │   ├── public
+│       │   │   └── index.html
+│       │   └── app.js
 │       └── WebSocket
 │           ├── client.html
 │           └── server.js
-├── nodemon.json
-├── package.json
-├── package-lock.json
-├── playground.js
 ├── py_practices
-│   ├── ACSII_art.txt
 │   ├── ASCII_art.py
 │   ├── check_RAM.py
-│   ├── check_RAM.txt
 │   ├── internet_speed.py
-│   ├── internet_speed.txt
 │   ├── py_data_types.py
-│   ├── QR_wifi_code.png
 │   ├── QR_wifi_code.py
+│   ├── random_characters_generator.py
 │   ├── strings.py
 │   └── Voronoi_Crystal_World.py
-├── pyproject.toml
-├── README.md
-├── requirements.in
-├── requirements.txt
-├── SECURITY.md
-├── styles.css
-├── TASK_MANAGER_PROJECT.md
 ├── tasks
 │   ├── task_1
 │   │   ├── css
@@ -906,73 +793,101 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   ├── task-08.html
 │   │   │   ├── task-09.html
 │   │   │   └── task-10.html
-│   │   ├── index.html
-│   │   └── js
-│   │       ├── task-01.js
-│   │       ├── task-02.js
-│   │       ├── task-03.js
-│   │       ├── task-04.js
-│   │       ├── task-05.js
-│   │       ├── task-06.js
-│   │       ├── task-07.js
-│   │       ├── task-08.js
-│   │       ├── task-09.js
-│   │       └── task-10.js
+│   │   ├── js
+│   │   │   ├── task-01.js
+│   │   │   ├── task-02.js
+│   │   │   ├── task-03.js
+│   │   │   ├── task-04.js
+│   │   │   ├── task-05.js
+│   │   │   ├── task-06.js
+│   │   │   ├── task-07.js
+│   │   │   ├── task-08.js
+│   │   │   ├── task-09.js
+│   │   │   └── task-10.js
+│   │   └── index.html
 │   ├── task_2
-│   │   ├── 01-gallery.html
-│   │   ├── 02-lightbox.html
 │   │   ├── css
 │   │   │   ├── common.css
 │   │   │   └── styles.css
-│   │   ├── index.html
-│   │   └── js
-│   │       ├── 01-gallery.js
-│   │       ├── 02-lightbox.js
-│   │       └── gallery-items.js
+│   │   ├── js
+│   │   │   ├── 01-gallery.js
+│   │   │   ├── 02-lightbox.js
+│   │   │   └── gallery-items.js
+│   │   ├── 01-gallery.html
+│   │   ├── 02-lightbox.html
+│   │   └── index.html
 │   ├── task_3
-│   │   ├── package.json
-│   │   ├── package-lock.json
-│   │   └── src
-│   │       ├── 01-gallery.html
-│   │       ├── 02-video.html
-│   │       ├── 03-feedback.html
-│   │       ├── css
-│   │       │   ├── 01-gallery.css
-│   │       │   ├── 03-feedback.css
-│   │       │   └── common.css
-│   │       ├── index.html
-│   │       ├── index.js
-│   │       ├── js
-│   │       │   ├── 01-gallery.js
-│   │       │   ├── 02-video.js
-│   │       │   ├── 03-feedback.js
-│   │       │   └── gallery-items.js
-│   │       ├── partials
-│   │       │   └── example.html
-│   │       └── sass
-│   │           ├── _common.scss
-│   │           ├── _example.scss
-│   │           └── index.scss
+│   │   ├── src
+│   │   │   ├── css
+│   │   │   │   ├── 01-gallery.css
+│   │   │   │   ├── 03-feedback.css
+│   │   │   │   └── common.css
+│   │   │   ├── js
+│   │   │   │   ├── 01-gallery.js
+│   │   │   │   ├── 02-video.js
+│   │   │   │   ├── 03-feedback.js
+│   │   │   │   └── gallery-items.js
+│   │   │   ├── partials
+│   │   │   │   └── example.html
+│   │   │   ├── sass
+│   │   │   │   ├── _common.scss
+│   │   │   │   ├── _example.scss
+│   │   │   │   └── index.scss
+│   │   │   ├── 01-gallery.html
+│   │   │   ├── 02-video.html
+│   │   │   ├── 03-feedback.html
+│   │   │   ├── index.html
+│   │   │   └── index.js
+│   │   ├── .editorconfig
+│   │   ├── .gitignore
+│   │   ├── .htmlnanorc
+│   │   ├── .parcelrc
+│   │   ├── .posthtmlrc
+│   │   ├── .prettierrc
+│   │   ├── .sassrc
+│   │   └── package.json
 │   └── task_4
-│       ├── package.json
-│       ├── package-lock.json
-│       └── src
-│           ├── 01-color-switcher.html
-│           ├── 02-timer.html
-│           ├── 03-promises.html
-│           ├── css
-│           │   └── common.css
-│           ├── index.html
-│           └── js
-│               ├── 01-color-switcher.js
-│               ├── 02-timer.js
-│               └── 03-promises.js
-├── tree.txt
+│       ├── src
+│       │   ├── css
+│       │   │   └── common.css
+│       │   ├── js
+│       │   │   ├── 01-color-switcher.js
+│       │   │   ├── 02-timer.js
+│       │   │   └── 03-promises.js
+│       │   ├── 01-color-switcher.html
+│       │   ├── 02-timer.html
+│       │   ├── 03-promises.html
+│       │   └── index.html
+│       ├── .editorconfig
+│       ├── .gitignore
+│       ├── .htmlnanorc
+│       ├── .parcelrc
+│       ├── .posthtmlrc
+│       ├── .prettierrc
+│       ├── .sassrc
+│       └── package.json
+├── .browserslistrc
+├── .gitignore
+├── .markdownlint.jsonc
+├── .prettierignore
+├── .prettierrc.json
+├── babel.config.json
+├── CLAUDE.md
+├── index.html
+├── nodemon.json
+├── package.json
+├── playground.js
+├── pyproject.toml
+├── README.md
+├── requirements.in
+├── requirements.txt
+├── SECURITY.md
+├── styles.css
 ├── tsconfig.check.json
-└── tsconfig.json
+├── tsconfig.json
+└── understood.md
 
-160 directories, 565 files
-
+     138 directories,      535 files
 ```
 
 ## Mermaid diagrams
@@ -1090,9 +1005,7 @@ Both use `concurrency` groups so a new push cancels the superseded run, and
 `npm run format` before committing or the job fails.
 
 The **type-check job is scoped** via `tsconfig.check.json` to
-`nested_projects/Pipe/` and `nested_projects/mock/`. `nested_projects/CEC/` is
-an archived snapshot whose dependencies (`react-router-dom`, `helmet`, the
-`.jsx` crew components) are not installed here.
+`nested_projects/Pipe/` and `nested_projects/mock/`.
 
 ### Repo governance
 
@@ -1121,9 +1034,6 @@ CODEOWNERS only takes effect once reviews are required. Recommended for `main`:
     `.handlebars` as HTML and throws on partial markup inside `{{#each}}` blocks
     (a `<ul>` opened outside the block and closed inside it). Both extensions
     are in `.prettierignore`.
--   **`nested_projects/CEC/` is stale.** It is a snapshot of an app that has
-    since moved to [DS_API](https://github.com/ChewBaccaYeti/DS_API), and its
-    dependencies are not installed here. Excluded from the type-check.
 -   **`tasks/task_3/.github/workflows/deploy.yml` is dead.** GitHub only reads
     workflows from the repository root `.github/workflows/`, so this nested one
     never runs. It also pins `actions/checkout@v2.3.1` and

@@ -59,7 +59,7 @@ npx jest --testPathPattern=<pattern>
 | Dir                | What it is                                                                                                                                                                                                                                                             |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `js_practices/`    | Core: the language-reference topic folders + small browser/Node demo apps under `js_practices/apps/`                                                                                                                                                                   |
-| `nested_projects/` | Larger self-contained Node/tooling projects (Express, Mongoose, JWT, WebSockets, nodemailer, Pipe, React/TS CEC, etc.)                                                                                                                                                 |
+| `nested_projects/` | Larger self-contained Node/tooling projects (Express, Mongoose, JWT, WebSockets, nodemailer, Pipe, multer, etc.)                                                                                                                                                       |
 | `algorithms/`      | Classic interview algorithms paired in **JavaScript + Python**. Subdirs: `sorting/`, `searching/`, `math/`, `graph/`, `dp/`, `strings/`, `data_structures/`, plus `visualization/` (D3) and `tests/`. See `algorithms/README.md` for full complexity tables and index. |
 | `tasks/`           | Standalone front-end task exercises (`task_1`..`task_4`); `task_3`/`task_4` have own `package.json` + Parcel                                                                                                                                                           |
 | `.github/`         | CI (`ci.yml`), CodeQL (`codeql.yml`), `CODEOWNERS`, `dependabot.yml`, PR/issue templates                                                                                                                                                                               |
@@ -73,29 +73,28 @@ These are the curated topic files. **When adding examples, match the existing
 style** (named function per concept, immediate call, RU/EN comments, a checklist
 of covered methods at the bottom where present):
 
-| Path                                           | Topic                                                                                                                        |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `Scripts/Arrays.js`                            | Array methods catalog (access, mutate, iterate, search, immutable copies, statics)                                           |
-| `Scripts/Objects.js`                           | `Object.*` statics, descriptors, prototypes, freeze/seal, clone (shallow vs `structuredClone`)                               |
-| `Scripts/DataTypes.js`                         | Primitives, `typeof`, coercion/conversion, `==` vs `===`, falsy, `?.`/`??`, symbols                                          |
-| `Scripts/variables.js`                         | `var`/`let`/`const`/`using` — scope, hoisting/TDZ, redeclare, reassign, loop trap, `Symbol.dispose`                          |
-| `Scripts/Math.js`                              | `Math.*` (trig/log, rounding, max/min/sqrt/sign/trunc/hypot, constants)                                                      |
-| `Scripts/Recursion.js`                         | Factorial, fibonacci, memoization, iterative form, tree/nested recursion                                                     |
-| `Scripts/Callback.js`                          | Callbacks, callback-style async chains (error-first)                                                                         |
-| `Scripts/Middleware.js`                        | Middleware pattern                                                                                                           |
-| `Scripts/functions/`                           | Declarations vs expressions, hoisting, arrow fns, rest/default params, spread, IIFE                                          |
-| `Scripts/loops/`                               | for / while / do-while / for-in / for-of / Set+Map iteration / switch / break-continue / labels (+ `Loops.mmd`)              |
-| `arrays/array_methods/`                        | Iteration methods in depth (forEach, map, filter, find, every/some, reduce, sort, flat, chaining, lodash)                    |
-| `arrays/arrays_examples/`                      | Applied array exercises                                                                                                      |
-| `objects/`                                     | Object creation, methods, iteration, applied examples (friends, cart)                                                        |
-| `classes/`                                     | class syntax, inheritance (`extends`/`super`/`instanceof`, + `02-inheritance.mmd`), OOP, `new`, getters/setters, private `#` |
-| `prototypes/`                                  | Prototype chain, constructor functions, `Object.create`, `__proto__`                                                         |
-| `this/`                                        | `this` binding rules, method vs standalone, `call`/`apply`/`bind`, arrow lexical `this`                                      |
-| `callback_closures/`                           | Callbacks, closures (factories, private state, currying, counter, var/let loop trap), arrow fns                              |
-| `DOM/`, `events/`, `delegation/`, `lazy-load/` | Browser DOM/event exercises (each driven by an `index.html`, with `css/` + `js/` siblings)                                   |
-| `quests/`                                      | Small algorithm challenges                                                                                                   |
-| `tutorial-lections/`                           | Lecture-style notes (closures, OOP, DOM props vs attributes, events, fCC)                                                    |
-| `scratch/`                                     | Loose experiments (`roman-numerals.js`, `check_RAM.py`)                                                                      |
+| Path                      | Topic                                                                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Scripts/Arrays.js`       | Array methods catalog (access, mutate, iterate, search, immutable copies, statics)                                                               |
+| `Scripts/Objects.js`      | `Object.*` statics, descriptors, prototypes, freeze/seal, clone (shallow vs `structuredClone`)                                                   |
+| `Scripts/DataTypes.js`    | Primitives, `typeof`, coercion/conversion, `==` vs `===`, falsy, `?.`/`??`, symbols                                                              |
+| `Scripts/variables.js`    | `var`/`let`/`const`/`using` — scope, hoisting/TDZ, redeclare, reassign, loop trap, `Symbol.dispose`                                              |
+| `Scripts/Math.js`         | `Math.*` (trig/log, rounding, max/min/sqrt/sign/trunc/hypot, constants)                                                                          |
+| `Scripts/Recursion.js`    | Factorial, fibonacci, memoization, iterative form, tree/nested recursion                                                                         |
+| `Scripts/Callback.js`     | Callbacks, callback-style async chains (error-first)                                                                                             |
+| `Scripts/Middleware.js`   | Middleware pattern                                                                                                                               |
+| `Scripts/functions/`      | Declarations vs expressions, hoisting, arrow fns, rest/default params, spread, IIFE                                                              |
+| `Scripts/loops/`          | for / while / do-while / for-in / for-of / Set+Map iteration / switch / break-continue / labels (+ `Loops.mmd`)                                  |
+| `arrays/array_methods/`   | Iteration methods in depth (forEach, map, filter, find, every/some, reduce, sort, flat, chaining, lodash)                                        |
+| `arrays/arrays_examples/` | Applied array exercises                                                                                                                          |
+| `objects/`                | Object creation, methods, iteration, applied examples (friends, cart, spread, destructuring, markup) + `exercises/` + `00-lecture.js`            |
+| `classes/`                | class syntax, inheritance (`extends`/`super`/`instanceof`, + `02-inheritance.mmd`), OOP, `new`, getters/setters, private `#` (+ `00-lecture.js`) |
+| `prototypes/`             | Prototype chain, constructor functions, `Object.create`, `__proto__`                                                                             |
+| `this/`                   | `this` binding rules, method vs standalone, `call`/`apply`/`bind`, arrow lexical `this`                                                          |
+| `callback_closures/`      | Callbacks, closures (factories, private state, currying, counter, var/let loop trap), arrow fns (+ `00-lecture.js`)                              |
+| `browser/`                | DOM / events / delegation / lazy-load exercises, each driven by `index.html` with `css/` + `js/` siblings                                        |
+| `quests/`                 | Small algorithm challenges                                                                                                                       |
+| `scratch/`                | Loose experiments (`roman-numerals.js`, `check_RAM.py`)                                                                                          |
 
 ### `js_practices/apps/` — small demo apps
 
@@ -107,18 +106,17 @@ SASS). No build tool: `colorPalette`, `crewings` (email scraping/filtering),
 
 ### `nested_projects/` — larger projects
 
-| Dir                                             | Stack                                                                                                    |
-| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `CEC/`                                          | React + TypeScript app (`IshimuraDB`) with styled-components — **archived snapshot**, see "Known issues" |
-| `Pipe/`                                         | Data pipeline over SWAPI, **own `package.json` + Jest** (`Pipeline.js`/`.ts`)                            |
-| `mongoose/`                                     | Express + MongoDB/Mongoose REST API (api / controller / service)                                         |
-| `JWT_token/`                                    | JWT auth with passport-jwt                                                                               |
-| `WebSockets/`                                   | Socket.io + raw WebSocket + Chat servers                                                                 |
-| `nodemailer/`                                   | Email via nodemailer + SendGrid + Handlebars, **own `package.json`**                                     |
-| `multer/`                                       | File upload example                                                                                      |
-| `mock/`                                         | Mock data generators (JS + TS)                                                                           |
-| `jest/`                                         | Standalone Jest example (`pow`)                                                                          |
-| `scrollLodash/`, `lazyloading/`, `junior-task/` | Small browser experiments                                                                                |
+| Dir             | Stack                                                                         |
+| --------------- | ----------------------------------------------------------------------------- |
+| `Pipe/`         | Data pipeline over SWAPI, **own `package.json` + Jest** (`Pipeline.js`/`.ts`) |
+| `mongoose/`     | Express + MongoDB/Mongoose REST API (api / controller / service)              |
+| `JWT_token/`    | JWT auth with passport-jwt                                                    |
+| `WebSockets/`   | Socket.io + raw WebSocket + Chat servers                                      |
+| `nodemailer/`   | Email via nodemailer + SendGrid + Handlebars, **own `package.json`**          |
+| `multer/`       | File upload example                                                           |
+| `mock/`         | Mock data generators (JS + TS), **own `package.json`**                        |
+| `jest/`         | Standalone Jest example (`pow`)                                               |
+| `scrollLodash/` | Lodash throttle/debounce demo via CDN                                         |
 
 ## Mermaid
 
@@ -205,11 +203,6 @@ gitignored.
 
 ## Known issues
 
--   **`nested_projects/CEC/` is stale.** It is a snapshot of an app that has
-    since moved to the sibling `DS_API` repo, and its dependencies
-    (`react-router-dom`, `helmet`, the `.jsx` crew components) are not installed
-    here. It is excluded from `tsconfig.check.json` for that reason — a plain
-    `npx tsc --noEmit` over the repo still fails on it.
 -   **`tasks/task_3/.github/workflows/deploy.yml` is dead.** GitHub only reads
     workflows from the root `.github/workflows/`, so this nested one never runs.
     It also pins `actions/checkout@v2.3.1` and
