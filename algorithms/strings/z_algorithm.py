@@ -6,26 +6,25 @@ Z[i] = длина max префикса s, совпадающего с s[i..].
 Поиск подстроки через pattern + "$" + text за O(n+m).
 =====================================================================
 """
-from typing import List
 
 
-def z_function(s: str) -> List[int]:
+def z_function(s: str) -> list[int]:
     n = len(s)
     z = [0] * n
-    l = r = 0
+    left = right = 0
 
     for i in range(1, n):
-        if i < r:
-            z[i] = min(r - i, z[i - l])
+        if i < right:
+            z[i] = min(right - i, z[i - left])
         while i + z[i] < n and s[z[i]] == s[i + z[i]]:
             z[i] += 1
-        if i + z[i] > r:
-            l, r = i, i + z[i]
+        if i + z[i] > right:
+            left, right = i, i + z[i]
 
     return z
 
 
-def z_search(text: str, pattern: str) -> List[int]:
+def z_search(text: str, pattern: str) -> list[int]:
     combined = pattern + "$" + text
     z = z_function(combined)
     m = len(pattern)

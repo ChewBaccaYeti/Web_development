@@ -6,15 +6,14 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 import pytest
-
 from sorting.bubble import bubble_sort
-from sorting.selection import selection_sort
+from sorting.counting import counting_sort
+from sorting.heap import heap_sort
 from sorting.insertion import insertion_sort
 from sorting.merge import merge_sort
 from sorting.quick import quick_sort
-from sorting.heap import heap_sort
-from sorting.counting import counting_sort
 from sorting.radix import radix_sort
+from sorting.selection import selection_sort
 
 CASES = [
     ("empty", [], []),
