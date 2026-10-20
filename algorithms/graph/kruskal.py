@@ -7,7 +7,6 @@ Kruskal MST / Минимальное остовное дерево
 Time:  O(E log E)
 =====================================================================
 """
-from typing import List, Tuple
 
 
 class UnionFind:
@@ -37,7 +36,7 @@ class UnionFind:
         return True
 
 
-def kruskal(nodes: List, edges: List[Tuple]) -> dict:
+def kruskal(nodes: list, edges: list[tuple]) -> dict:
     edges_sorted = sorted(edges, key=lambda e: e[2])
     uf = UnionFind(nodes)
     mst = []

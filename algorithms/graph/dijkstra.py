@@ -10,10 +10,9 @@ Space: O(V)
 """
 import heapq
 from math import inf
-from typing import Dict, Tuple
 
 
-def dijkstra(graph: Dict, start) -> Tuple[Dict, Dict]:
+def dijkstra(graph: dict, start) -> tuple[dict, dict]:
     dist = {node: inf for node in graph}
     parent = {start: None}
     dist[start] = 0
