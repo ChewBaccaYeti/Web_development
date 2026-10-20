@@ -7,7 +7,22 @@ const path = require('path');
 const app = express();
 require('dotenv').config();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const MAIL_FROM = process.env.MAIL_FROM;
+const MAIL_TO = process.env.MAIL_TO;
+
+const escapeHtml = str =>
+    String(str ?? '').replace(
+        /[&<>"']/g,
+        ch =>
+            ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;',
+            })[ch],
+    );
 
 // View engine setup middleware
 app.engine(
@@ -32,17 +47,18 @@ app.get('/', (req, res) => {
 });
 
 app.post('/send', (req, res) => {
+    const { name, company, email, phone, message } = req.body;
     const output = `
         <p>You have a new contact request</p>
         <h3>Contact Details</h3>
-        <ul>  
-            <li>Name: ${req.body.name}</li>
-            <li>Company: ${req.body.company}</li>
-            <li>Email: ${req.body.email}</li>
-            <li>Phone: ${req.body.phone}</li>
+        <ul>
+            <li>Name: ${escapeHtml(name)}</li>
+            <li>Company: ${escapeHtml(company)}</li>
+            <li>Email: ${escapeHtml(email)}</li>
+            <li>Phone: ${escapeHtml(phone)}</li>
         </ul>
         <h3>Message</h3>
-        <p>${req.body.message}</p>
+        <p>${escapeHtml(message)}</p>
     `;
 
     const config = {
@@ -53,19 +69,16 @@ app.post('/send', (req, res) => {
             user: process.env.USER,
             pass: process.env.PASSWORD,
         },
-        tls: {
-            rejectUnauthorized: false,
-        },
     };
 
     const transporter = nodemailer.createTransport(config);
 
     const emailOptions = {
-        from: 'jangofrett9982@gmail.com',
-        to: 'jangofrett9982@gmail.com', // list of receivers
+        from: MAIL_FROM,
+        to: MAIL_TO,
         subject: 'Nodemailer test',
-        text: req.body.message,
-        html: output, // html body
+        text: message,
+        html: output,
     };
 
     transporter

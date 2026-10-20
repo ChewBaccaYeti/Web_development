@@ -1,7 +1,11 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
 const payload = { id: 123456, username: 'Larson' };
-const secret = 'secret word';
+const secret = process.env.SECRET;
+if (!secret) {
+    throw new Error('SECRET env var is required');
+}
 const token = jwt.sign(payload, secret);
 
 console.log(token);

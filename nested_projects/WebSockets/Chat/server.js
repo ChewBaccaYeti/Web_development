@@ -13,6 +13,11 @@ server.listen(PORT, function () {
 app.use(express.static(__dirname + '/public'));
 
 const users = {};
+const MAX_NAME = 32;
+const MAX_MESSAGE = 500;
+
+const sanitize = (value, max) =>
+    typeof value === 'string' ? value.trim().slice(0, max) : '';
 
 io.sockets.on('connection', client => {
     const broadcast = (event, data) => {
@@ -22,12 +27,16 @@ io.sockets.on('connection', client => {
 
     broadcast('user', users);
 
-    client.on('message', message => {
-        if (users[client.id] !== message.name) {
-            users[client.id] = message.name;
+    client.on('message', payload => {
+        const name = sanitize(payload?.name, MAX_NAME);
+        const messages = sanitize(payload?.messages, MAX_MESSAGE);
+        if (!name || !messages) return;
+
+        if (users[client.id] !== name) {
+            users[client.id] = name;
             broadcast('user', users);
         }
-        broadcast('message', message);
+        broadcast('message', { name, messages });
     });
 
     client.on('disconnect', () => {

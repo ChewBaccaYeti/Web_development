@@ -68,31 +68,14 @@ app.listen(PORT, async () => {
     console.log(`Server running. Use on port:${PORT}`);
 });
 
-const killSignal = () => {
-    console.log('Kill signal.');
-    setTimeout(() => {
-        console.error('Forcing kill signal.');
-        process.exit(1); // Тут return не нужен
-    }, 5000);
+const gracefulShutdown = signal => () => {
+    console.log(`Received ${signal}. Gracefully shutting down...`);
+    process.exit(0);
 };
 
-process.once('SIGTERM', killSignal);
-process.once('SIGINT', killSignal);
-
-// Посылаем сигнал текущему процессу
-process.kill(process.pid, 'SIGINT');
-
-process.on('SIGTERM', () => {
-    console.log('Received SIGTERM. Gracefully shutting down...');
-    process.exit(0);
-});
-
-process.on('SIGINT', () => {
-    console.log('Received SIGINT. Gracefully shutting down...');
-    process.exit(0);
-});
+process.once('SIGTERM', gracefulShutdown('SIGTERM'));
+process.once('SIGINT', gracefulShutdown('SIGINT'));
 
 process.on('SIGHUP', () => {
     console.log('Received SIGHUP. Reloading configuration...');
-    // код для перезагрузки конфигурации
 });
