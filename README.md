@@ -136,19 +136,24 @@ covered methods at the bottom where one is present.
 
 ### Core catalog — `Scripts/`
 
-| File                              | Topic                                                                                           |
-| --------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `Scripts/Arrays.js`               | Array methods: access, mutate, iterate, search, immutable copies, statics                       |
-| `Scripts/Objects.js`              | `Object.*` statics, descriptors, prototypes, freeze/seal, shallow clone vs `structuredClone`    |
-| `Scripts/DataTypes.js`            | Primitives, `typeof`, coercion, `==` vs `===`, falsy, `?.` / `??`, symbols                      |
-| `Scripts/variables.js`            | `var`/`let`/`const`/`using` — scope, hoisting/TDZ, loop trap, `Symbol.dispose`                  |
-| `Scripts/Math.js`                 | `Math.*` — trig/log, rounding, `max`/`min`/`sqrt`/`sign`/`trunc`/`hypot`, constants             |
-| `Scripts/Recursion.js`            | Factorial, fibonacci, memoization, iterative form, tree/nested recursion                        |
-| `Scripts/Callback.js`             | Callbacks and error-first async chains                                                          |
-| `Scripts/Middleware.js`           | The middleware pattern                                                                          |
-| `Scripts/alert_prompt_confirm.js` | Browser dialog primitives                                                                       |
-| `Scripts/functions/`              | Declarations vs expressions, hoisting, arrow fns, rest/default params, spread, IIFE             |
-| `Scripts/loops/`                  | for / while / do-while / for-in / for-of / Set+Map iteration / switch / break-continue / labels |
+| File                    | Topic                                                                                           |
+| ----------------------- | ----------------------------------------------------------------------------------------------- |
+| `Scripts/Arrays.js`     | Array methods: access, mutate, iterate, search, immutable copies, statics                       |
+| `Scripts/Objects.js`    | `Object.*` statics, descriptors, prototypes, freeze/seal, shallow clone vs `structuredClone`    |
+| `Scripts/DataTypes.js`  | Primitives, `typeof`, coercion, `==` vs `===`, falsy, `?.` / `??`, symbols                      |
+| `Scripts/variables.js`  | `var`/`let`/`const`/`using` — scope, hoisting/TDZ, loop trap, `Symbol.dispose`                  |
+| `Scripts/Math.js`       | `Math.*` — trig/log, rounding, `max`/`min`/`sqrt`/`sign`/`trunc`/`hypot`, constants             |
+| `Scripts/Recursion.js`  | Factorial, fibonacci, memoization, iterative form, tree/nested recursion                        |
+| `Scripts/Callback.js`   | Callbacks and error-first async chains                                                          |
+| `Scripts/Middleware.js` | The middleware pattern                                                                          |
+| `Scripts/Strings.js`    | String methods — case, trim, slice/substring, split/join, replace, template literals            |
+| `Scripts/fCC-notes.js`  | freeCodeCamp running notes                                                                      |
+| `Scripts/functions/`    | Declarations vs expressions, hoisting, arrow fns, rest/default params, spread, IIFE             |
+| `Scripts/loops/`        | for / while / do-while / for-in / for-of / Set+Map iteration / switch / break-continue / labels |
+
+Three orphan files sit at the `js_practices/` root (not inside `Scripts/`):
+`alert_prompt_confirm.js` (browser dialogs), `counters-iterations.js`,
+`multi_tab.js`.
 
 ### Topic folders
 
@@ -162,8 +167,7 @@ covered methods at the bottom where one is present.
 | `this/`                   | Binding rules, method vs standalone, `call`/`apply`/`bind`, arrow lexical `this`                                               |
 | `callback_closures/`      | Callbacks, closures (factories, private state, currying, counter, `var`/`let` loop trap), arrow fns (+ `00-lecture.js`)        |
 | `browser/`                | DOM / events / delegation / lazy-load exercises, each driven by `index.html` with `css/`, `js/` siblings                       |
-| `quests/`                 | Small algorithm challenges (largest triangle, sum of nums)                                                                     |
-| `scratch/`                | Loose experiments (`roman-numerals.js`, `check_RAM.py`)                                                                        |
+| `quests/`                 | Small algorithm challenges (`largest_triangle`, `roman-numerals`, `sum_of_nums`)                                               |
 
 ### `js_practices/apps/` — demo apps
 
@@ -371,6 +375,7 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   │   ├── 06-timer.html
 │   │   │   │   ├── index.html
 │   │   │   │   └── index.js
+│   │   │   ├── package-lock.json
 │   │   │   └── package.json
 │   │   ├── async-await
 │   │   │   ├── src
@@ -389,6 +394,7 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   │   ├── index.html
 │   │   │   │   └── index.js
 │   │   │   ├── db.json
+│   │   │   ├── package-lock.json
 │   │   │   └── package.json
 │   │   ├── colorPalette
 │   │   │   ├── index.html
@@ -410,6 +416,7 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   │   ├── index.html
 │   │   │   │   └── index.js
 │   │   │   ├── db.json
+│   │   │   ├── package-lock.json
 │   │   │   └── package.json
 │   │   ├── football-game
 │   │   │   ├── football.css
@@ -430,6 +437,7 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   │   ├── 02-cors.html
 │   │   │   │   ├── index.html
 │   │   │   │   └── index.js
+│   │   │   ├── package-lock.json
 │   │   │   └── package.json
 │   │   ├── localStorage
 │   │   │   ├── src
@@ -456,6 +464,7 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   │   ├── index.html
 │   │   │   │   ├── index.js
 │   │   │   │   └── storage.js
+│   │   │   ├── package-lock.json
 │   │   │   └── package.json
 │   │   ├── npm
 │   │   │   ├── src
@@ -470,6 +479,7 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   │   └── app.js
 │   │   │   ├── index.html
 │   │   │   ├── index.js
+│   │   │   ├── package-lock.json
 │   │   │   └── package.json
 │   │   ├── pagination
 │   │   │   ├── src
@@ -484,6 +494,7 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   │   ├── fetchKeysParamsNewsAPI.js
 │   │   │   │   ├── index.html
 │   │   │   │   └── index.js
+│   │   │   ├── package-lock.json
 │   │   │   └── package.json
 │   │   ├── promises
 │   │   │   ├── src
@@ -498,6 +509,7 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   │   ├── 03-racetrack.html
 │   │   │   │   ├── index.html
 │   │   │   │   └── index.js
+│   │   │   ├── package-lock.json
 │   │   │   └── package.json
 │   │   └── webpack
 │   │       ├── src
@@ -511,6 +523,7 @@ written to deploy under the repo's GitHub Pages path.
 │   │       ├── .prettierrc.json
 │   │       ├── babel.config.json
 │   │       ├── index.html
+│   │       ├── package-lock.json
 │   │       ├── package.json
 │   │       └── webpack.config.js
 │   ├── arrays
@@ -742,10 +755,12 @@ written to deploy under the repo's GitHub Pages path.
 │   │   │   │   └── main.handlebars
 │   │   │   └── contact.handlebars
 │   │   ├── .env.example
+│   │   ├── package-lock.json
 │   │   ├── package.json
 │   │   └── transporter.js
 │   ├── Pipe
 │   │   ├── index.html
+│   │   ├── package-lock.json
 │   │   ├── package.json
 │   │   ├── Pipeline.js
 │   │   ├── Pipeline.test.js
@@ -845,6 +860,7 @@ written to deploy under the repo's GitHub Pages path.
 │   │   ├── .posthtmlrc
 │   │   ├── .prettierrc
 │   │   ├── .sassrc
+│   │   ├── package-lock.json
 │   │   └── package.json
 │   └── task_4
 │       ├── src
@@ -865,6 +881,7 @@ written to deploy under the repo's GitHub Pages path.
 │       ├── .posthtmlrc
 │       ├── .prettierrc
 │       ├── .sassrc
+│       ├── package-lock.json
 │       └── package.json
 ├── .browserslistrc
 ├── .gitignore
@@ -875,6 +892,7 @@ written to deploy under the repo's GitHub Pages path.
 ├── CLAUDE.md
 ├── index.html
 ├── nodemon.json
+├── package-lock.json
 ├── package.json
 ├── playground.js
 ├── pyproject.toml
@@ -887,7 +905,7 @@ written to deploy under the repo's GitHub Pages path.
 ├── tsconfig.json
 └── understood.md
 
-     138 directories,      535 files
+     133 directories,      526 files
 ```
 
 ## Mermaid diagrams
@@ -1039,18 +1057,11 @@ CODEOWNERS only takes effect once reviews are required. Recommended for `main`:
     never runs. It also pins `actions/checkout@v2.3.1` and
     `JamesIves/github-pages-deploy-action@4.1.0`. Move it to the root and bump
     the actions if Pages deployment is wanted.
--   **`TASK_MANAGER_PROJECT.md` has no implementation yet.** The spec describes
-    a 5-level progressive project; the `js_practices/projects/task-manager/`
-    directory it targets does not exist.
 -   **The root `index.html` / `styles.css`** are a leftover freeCodeCamp
     CatPhotoApp exercise, not a project entry point.
 
 ## Docs
 
--   [`LEARNING_ROADMAP.md`](LEARNING_ROADMAP.md) — level-by-level study plan,
-    from data types through advanced patterns, mapped to the reference files.
--   [`TASK_MANAGER_PROJECT.md`](TASK_MANAGER_PROJECT.md) — spec for the 5-level
-    progressive task-manager project.
 -   [`algorithms/README.md`](algorithms/README.md) — complexity tables and the
     full algorithm index.
 -   [`algorithms/tests/README.md`](algorithms/tests/README.md) — how to run and
