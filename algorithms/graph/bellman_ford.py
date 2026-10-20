@@ -8,10 +8,9 @@ Space: O(V)
 =====================================================================
 """
 from math import inf
-from typing import List, Tuple
 
 
-def bellman_ford(nodes: List, edges: List[Tuple], start) -> dict:
+def bellman_ford(nodes: list, edges: list[tuple], start) -> dict:
     dist = {n: inf for n in nodes}
     parent = {}
     dist[start] = 0

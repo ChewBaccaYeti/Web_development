@@ -6,10 +6,9 @@ Time:  O(n)
 Space: O(1)
 =====================================================================
 """
-from typing import List
 
 
-def linear_search(arr: List[int], target: int) -> int:
+def linear_search(arr: list[int], target: int) -> int:
     for i, val in enumerate(arr):
         if val == target:
             return i

@@ -7,10 +7,9 @@ Time:  O(n * W)
 Space: O(W) (1D rolling)
 =====================================================================
 """
-from typing import List, Tuple
 
 
-def knapsack(weights: List[int], values: List[int], capacity: int) -> int:
+def knapsack(weights: list[int], values: list[int], capacity: int) -> int:
     dp = [0] * (capacity + 1)
 
     for i in range(len(weights)):
@@ -21,7 +20,7 @@ def knapsack(weights: List[int], values: List[int], capacity: int) -> int:
     return dp[capacity]
 
 
-def knapsack_2d(weights: List[int], values: List[int], capacity: int) -> Tuple[int, List[int]]:
+def knapsack_2d(weights: list[int], values: list[int], capacity: int) -> tuple[int, list[int]]:
     n = len(weights)
     dp = [[0] * (capacity + 1) for _ in range(n + 1)]
 

@@ -80,7 +80,9 @@ class LinkedList:
 
 if __name__ == "__main__":
     ll = LinkedList()
-    ll.append(1); ll.append(2); ll.append(3)
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
     ll.prepend(0)
     print(ll.to_list())  # [0, 1, 2, 3]
     ll.reverse()

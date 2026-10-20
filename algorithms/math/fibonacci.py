@@ -6,8 +6,7 @@ F(0)=0, F(1)=1, F(n)=F(n-1)+F(n-2)
 4 реализации — классический собес-вопрос про trade-offs.
 =====================================================================
 """
-from functools import lru_cache
-from typing import List
+from functools import cache
 
 
 # 1) Наивная — O(2^n)
@@ -18,7 +17,7 @@ def fib_naive(n: int) -> int:
 
 
 # 2) Мемоизация через декоратор — O(n)
-@lru_cache(maxsize=None)
+@cache
 def fib_memo(n: int) -> int:
     if n < 2:
         return n
@@ -36,7 +35,7 @@ def fib_iterative(n: int) -> int:
 
 
 # 4) Матричное возведение в степень — O(log n)
-Matrix = List[List[int]]
+Matrix = list[list[int]]
 
 
 def _mat_mul(a: Matrix, b: Matrix) -> Matrix:

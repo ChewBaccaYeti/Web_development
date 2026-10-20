@@ -11,10 +11,9 @@ Stable: yes
 In-place: no
 =====================================================================
 """
-from typing import List
 
 
-def merge_sort(arr: List[int]) -> List[int]:
+def merge_sort(arr: list[int]) -> list[int]:
     if len(arr) <= 1:
         return arr
 
@@ -25,7 +24,7 @@ def merge_sort(arr: List[int]) -> List[int]:
     return merge(left, right)
 
 
-def merge(left: List[int], right: List[int]) -> List[int]:
+def merge(left: list[int], right: list[int]) -> list[int]:
     """Сливает два отсортированных списка. O(n + m)."""
     result = []
     i = j = 0

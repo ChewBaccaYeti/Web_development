@@ -8,10 +8,9 @@ Time: O(amount * len(coins))
 =====================================================================
 """
 from math import inf
-from typing import List
 
 
-def coin_change(coins: List[int], amount: int) -> int:
+def coin_change(coins: list[int], amount: int) -> int:
     dp = [inf] * (amount + 1)
     dp[0] = 0
 
@@ -23,7 +22,7 @@ def coin_change(coins: List[int], amount: int) -> int:
     return -1 if dp[amount] == inf else dp[amount]
 
 
-def coin_change_ways(coins: List[int], amount: int) -> int:
+def coin_change_ways(coins: list[int], amount: int) -> int:
     """Сколько комбинаций (не перестановок) дают amount."""
     dp = [0] * (amount + 1)
     dp[0] = 1

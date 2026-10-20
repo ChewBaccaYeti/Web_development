@@ -7,10 +7,9 @@ Time: O(V + E)
 =====================================================================
 """
 from collections import deque
-from typing import Dict, List
 
 
-def topo_kahn(graph: Dict) -> List:
+def topo_kahn(graph: dict) -> list:
     nodes = list(graph.keys())
     in_degree = {n: 0 for n in nodes}
 
@@ -34,7 +33,7 @@ def topo_kahn(graph: Dict) -> List:
     return order
 
 
-def topo_dfs(graph: Dict) -> List:
+def topo_dfs(graph: dict) -> list:
     visited = set()
     in_stack = set()
     order = []

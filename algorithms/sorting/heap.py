@@ -18,10 +18,9 @@ In-place: yes
 Замечание: в реальности на Python используй heapq из stdlib.
 =====================================================================
 """
-from typing import List
 
 
-def heap_sort(arr: List[int]) -> List[int]:
+def heap_sort(arr: list[int]) -> list[int]:
     n = len(arr)
 
     # 1. Build max-heap
@@ -36,7 +35,7 @@ def heap_sort(arr: List[int]) -> List[int]:
     return arr
 
 
-def sift_down(arr: List[int], heap_size: int, i: int) -> None:
+def sift_down(arr: list[int], heap_size: int, i: int) -> None:
     while True:
         left = 2 * i + 1
         right = 2 * i + 2

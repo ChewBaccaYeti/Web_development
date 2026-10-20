@@ -8,7 +8,6 @@ insert/search/delete: O(log n) avg, O(n) worst.
 =====================================================================
 """
 from collections import deque
-from typing import List
 
 
 class TreeNode:
@@ -66,7 +65,7 @@ class BST:
             node.right = self._delete(node.right, succ.value)
         return node
 
-    def inorder(self, node=..., result=None) -> List:
+    def inorder(self, node=..., result=None) -> list:
         if node is ...:
             node = self.root
             result = []
@@ -77,7 +76,7 @@ class BST:
         self.inorder(node.right, result)
         return result
 
-    def preorder(self, node=..., result=None) -> List:
+    def preorder(self, node=..., result=None) -> list:
         if node is ...:
             node = self.root
             result = []
@@ -88,7 +87,7 @@ class BST:
         self.preorder(node.right, result)
         return result
 
-    def postorder(self, node=..., result=None) -> List:
+    def postorder(self, node=..., result=None) -> list:
         if node is ...:
             node = self.root
             result = []
@@ -99,7 +98,7 @@ class BST:
         result.append(node.value)
         return result
 
-    def level_order(self) -> List:
+    def level_order(self) -> list:
         result = []
         if not self.root:
             return result

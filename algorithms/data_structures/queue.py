@@ -60,6 +60,8 @@ class CircularQueue:
 
 if __name__ == "__main__":
     q = Queue()
-    q.enqueue("a"); q.enqueue("b"); q.enqueue("c")
+    q.enqueue("a")
+    q.enqueue("b")
+    q.enqueue("c")
     print(q.dequeue())  # 'a'
     print(q.peek())     # 'b'

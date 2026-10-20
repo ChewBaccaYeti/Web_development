@@ -11,10 +11,9 @@ In-place: no
 Условие: неотрицательные целые.
 =====================================================================
 """
-from typing import List
 
 
-def radix_sort(arr: List[int]) -> List[int]:
+def radix_sort(arr: list[int]) -> list[int]:
     if not arr:
         return arr
 
@@ -27,7 +26,7 @@ def radix_sort(arr: List[int]) -> List[int]:
     return arr
 
 
-def _counting_by_digit(arr: List[int], exp: int) -> None:
+def _counting_by_digit(arr: list[int], exp: int) -> None:
     n = len(arr)
     output = [0] * n
     count = [0] * 10

@@ -6,10 +6,9 @@ Time:  O(log log n) на равномерных данных, O(n) worst
 Space: O(1)
 =====================================================================
 """
-from typing import List
 
 
-def interpolation_search(arr: List[int], target: int) -> int:
+def interpolation_search(arr: list[int], target: int) -> int:
     lo, hi = 0, len(arr) - 1
 
     while lo <= hi and arr[lo] <= target <= arr[hi]:

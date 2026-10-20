@@ -6,7 +6,6 @@ insert/search/startsWith — O(L)
 Применение: автодополнение, словари, T9.
 =====================================================================
 """
-from typing import List
 
 
 class TrieNode:
@@ -44,7 +43,7 @@ class Trie:
             node = node.children[ch]
         return node
 
-    def autocomplete(self, prefix: str) -> List[str]:
+    def autocomplete(self, prefix: str) -> list[str]:
         node = self._traverse(prefix)
         if node is None:
             return []
@@ -52,7 +51,7 @@ class Trie:
         self._collect(node, prefix, results)
         return results
 
-    def _collect(self, node: TrieNode, path: str, results: List[str]) -> None:
+    def _collect(self, node: TrieNode, path: str, results: list[str]) -> None:
         if node.is_end:
             results.append(path)
         for ch, child in node.children.items():

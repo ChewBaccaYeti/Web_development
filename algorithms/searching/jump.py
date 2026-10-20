@@ -8,10 +8,9 @@ Space: O(1)
 =====================================================================
 """
 import math
-from typing import List
 
 
-def jump_search(arr: List[int], target: int) -> int:
+def jump_search(arr: list[int], target: int) -> int:
     n = len(arr)
     if n == 0:
         return -1

@@ -12,10 +12,9 @@ Stable: no
 In-place: yes
 =====================================================================
 """
-from typing import List
 
 
-def quick_sort(arr: List[int], lo: int = 0, hi: int = None) -> List[int]:
+def quick_sort(arr: list[int], lo: int = 0, hi: int = None) -> list[int]:
     if hi is None:
         hi = len(arr) - 1
 
@@ -27,7 +26,7 @@ def quick_sort(arr: List[int], lo: int = 0, hi: int = None) -> List[int]:
     return arr
 
 
-def partition(arr: List[int], lo: int, hi: int) -> int:
+def partition(arr: list[int], lo: int, hi: int) -> int:
     """Lomuto partition: arr[hi] — pivot."""
     pivot = arr[hi]
     i = lo - 1

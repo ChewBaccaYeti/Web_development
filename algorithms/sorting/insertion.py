@@ -10,10 +10,9 @@ Stable: yes
 In-place: yes
 =====================================================================
 """
-from typing import List
 
 
-def insertion_sort(arr: List[int]) -> List[int]:
+def insertion_sort(arr: list[int]) -> list[int]:
     for i in range(1, len(arr)):
         current = arr[i]
         j = i - 1

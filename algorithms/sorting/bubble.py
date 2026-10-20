@@ -10,10 +10,9 @@ Stable: yes
 In-place: yes
 =====================================================================
 """
-from typing import List
 
 
-def bubble_sort(arr: List[int]) -> List[int]:
+def bubble_sort(arr: list[int]) -> list[int]:
     n = len(arr)
 
     # Внешний цикл: n-1 проходов

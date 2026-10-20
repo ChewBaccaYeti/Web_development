@@ -10,10 +10,9 @@ In-place: no
 Условие: целые в ограниченном диапазоне.
 =====================================================================
 """
-from typing import List
 
 
-def counting_sort(arr: List[int]) -> List[int]:
+def counting_sort(arr: list[int]) -> list[int]:
     if not arr:
         return arr
 

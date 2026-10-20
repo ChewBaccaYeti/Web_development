@@ -10,10 +10,9 @@ Space: O(1) iterative, O(log n) recursive
    bisect.bisect_left(arr, target)
    bisect.insort(arr, value)
 """
-from typing import List
 
 
-def binary_search(arr: List[int], target: int) -> int:
+def binary_search(arr: list[int], target: int) -> int:
     lo, hi = 0, len(arr) - 1
 
     while lo <= hi:
@@ -29,7 +28,7 @@ def binary_search(arr: List[int], target: int) -> int:
     return -1
 
 
-def binary_search_recursive(arr: List[int], target: int, lo: int = 0, hi: int = None) -> int:
+def binary_search_recursive(arr: list[int], target: int, lo: int = 0, hi: int = None) -> int:
     if hi is None:
         hi = len(arr) - 1
     if lo > hi:

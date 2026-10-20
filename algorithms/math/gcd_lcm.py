@@ -8,7 +8,6 @@ Time: O(log min(a,b))
 В stdlib: math.gcd, math.lcm
 =====================================================================
 """
-from typing import Tuple
 
 
 def gcd(a: int, b: int) -> int:
@@ -24,7 +23,7 @@ def lcm(a: int, b: int) -> int:
     return abs(a // gcd(a, b)) * abs(b)
 
 
-def gcd_extended(a: int, b: int) -> Tuple[int, int, int]:
+def gcd_extended(a: int, b: int) -> tuple[int, int, int]:
     """Возвращает (g, x, y), где a*x + b*y = g = gcd(a, b)."""
     if b == 0:
         return a, 1, 0

@@ -5,13 +5,12 @@ Rabin-Karp — поиск подстроки через rolling hash
 Time: O(n + m) avg, O(n*m) worst
 =====================================================================
 """
-from typing import List
 
 BASE = 256
 MOD = 1_000_000_007
 
 
-def rabin_karp(text: str, pattern: str) -> List[int]:
+def rabin_karp(text: str, pattern: str) -> list[int]:
     n, m = len(text), len(pattern)
     if m > n:
         return []

@@ -6,10 +6,9 @@ LIS / Longest Increasing Subsequence
 =====================================================================
 """
 from bisect import bisect_left
-from typing import List
 
 
-def lis_quadratic(arr: List[int]) -> int:
+def lis_quadratic(arr: list[int]) -> int:
     n = len(arr)
     if n == 0:
         return 0
@@ -23,7 +22,7 @@ def lis_quadratic(arr: List[int]) -> int:
     return max(dp)
 
 
-def lis_fast(arr: List[int]) -> int:
+def lis_fast(arr: list[int]) -> int:
     """O(n log n) — bisect_left заменяет ручной binary search."""
     tails = []
     for x in arr:

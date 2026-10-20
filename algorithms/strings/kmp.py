@@ -5,10 +5,9 @@ KMP / Knuth-Morris-Pratt
 Поиск подстроки за O(n + m). Использует LPS-таблицу.
 =====================================================================
 """
-from typing import List
 
 
-def build_lps(pattern: str) -> List[int]:
+def build_lps(pattern: str) -> list[int]:
     m = len(pattern)
     lps = [0] * m
     length = 0
@@ -28,7 +27,7 @@ def build_lps(pattern: str) -> List[int]:
     return lps
 
 
-def kmp_search(text: str, pattern: str) -> List[int]:
+def kmp_search(text: str, pattern: str) -> list[int]:
     if not pattern:
         return [0]
 

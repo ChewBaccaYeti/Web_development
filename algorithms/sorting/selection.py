@@ -10,10 +10,9 @@ Stable: no
 In-place: yes
 =====================================================================
 """
-from typing import List
 
 
-def selection_sort(arr: List[int]) -> List[int]:
+def selection_sort(arr: list[int]) -> list[int]:
     n = len(arr)
 
     for i in range(n - 1):

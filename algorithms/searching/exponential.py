@@ -9,10 +9,9 @@ Space: O(1)
 Применение: неограниченные списки.
 =====================================================================
 """
-from typing import List
 
 
-def _binary_search(arr: List[int], target: int, lo: int, hi: int) -> int:
+def _binary_search(arr: list[int], target: int, lo: int, hi: int) -> int:
     while lo <= hi:
         mid = lo + (hi - lo) // 2
         if arr[mid] == target:
@@ -24,7 +23,7 @@ def _binary_search(arr: List[int], target: int, lo: int, hi: int) -> int:
     return -1
 
 
-def exponential_search(arr: List[int], target: int) -> int:
+def exponential_search(arr: list[int], target: int) -> int:
     n = len(arr)
     if n == 0:
         return -1

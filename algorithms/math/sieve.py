@@ -5,10 +5,9 @@ Sieve of Eratosthenes / Решето Эратосфена
 Time: O(n log log n), Space: O(n)
 =====================================================================
 """
-from typing import List
 
 
-def sieve(n: int) -> List[int]:
+def sieve(n: int) -> list[int]:
     if n < 2:
         return []
 
