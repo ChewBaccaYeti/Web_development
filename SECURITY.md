@@ -29,7 +29,7 @@ reply within a couple of weeks; this is a side project.
 
 ## Automated scanning
 
--   **CodeQL** — `javascript-typescript`, `python`, and `actions` analysed on
+-   **CodeQL** — `javascript-typescript`, `python`, and `actions` analyzed on
     every push and PR to `main`, plus a weekly scheduled run.
 -   **Dependabot** — weekly npm updates at the root, monthly for the nested
     projects, `tasks/`, pip, and GitHub Actions.
@@ -39,6 +39,6 @@ reply within a couple of weeks; this is a side project.
 -   No credentials, tokens, connection strings, API keys, or personal data in
     the repo — not in code, comments, commits, or fixtures. `.env` is
     gitignored; keep it that way.
--   Example servers must use parameterised queries and validate input at the
+-   Example servers must use parameterized queries and validate input at the
     boundary. Copy-paste-ready code should be copy-paste-safe.
 -   Do not disable CI checks or scanners to get a PR green.
