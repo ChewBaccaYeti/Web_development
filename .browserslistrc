@@ -1,9 +1,6 @@
-last 3 and_chr versions
-last 3 chrome versions
-last 3 opera versions
-last 3 ios_saf versions
-last 3 safari versions
-
+# Targets for Babel (@babel/preset-env), Autoprefixer, Parcel.
+# Covers ~90% of real-world browsers without over-polyfilling modern engines.
+> 0.5%
 last 2 versions
-> 1%
-not dead 
+not dead
+Firefox ESR

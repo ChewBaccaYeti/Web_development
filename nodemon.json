@@ -1,12 +1,12 @@
 {
     "watch": [
-        "nested_projects/CEC/",
         "nested_projects/mock/",
         "nested_projects/nodemailer/",
         "nested_projects/Pipe/",
         "js_practices/Scripts/",
         "algorithms/"
     ],
+    "delay": 500,
     "ext": "js,ts,json,py",
     "ignore": [
         "node_modules/",
