@@ -35,11 +35,11 @@ welcome();
 let blablarism =
     age < 18
         ? function () {
-              alert('Wazzup!!!');
-          }
+            alert('Wazzup!!!');
+        }
         : function () {
-              alert('How are you, sir?');
-          };
+            alert('How are you, sir?');
+        };
 
 blablarism();
 
