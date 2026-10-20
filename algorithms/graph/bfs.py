@@ -9,10 +9,9 @@ Space: O(V)
 =====================================================================
 """
 from collections import deque
-from typing import Dict, List, Optional
 
 
-def bfs(graph: Dict, start) -> dict:
+def bfs(graph: dict, start) -> dict:
     visited = {start}
     order = []
     distance = {start: 0}
@@ -34,7 +33,7 @@ def bfs(graph: Dict, start) -> dict:
     return {"order": order, "distance": distance, "parent": parent}
 
 
-def reconstruct_path(parent: Dict, target) -> Optional[List]:
+def reconstruct_path(parent: dict, target) -> list | None:
     if target not in parent:
         return None
     path = []

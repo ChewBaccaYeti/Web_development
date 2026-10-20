@@ -7,10 +7,9 @@ Time:  O(V + E)
 Space: O(V)
 =====================================================================
 """
-from typing import Dict, List, Set
 
 
-def dfs_recursive(graph: Dict, start, visited: Set = None, order: List = None) -> List:
+def dfs_recursive(graph: dict, start, visited: set = None, order: list = None) -> list:
     if visited is None:
         visited, order = set(), []
     visited.add(start)
@@ -23,7 +22,7 @@ def dfs_recursive(graph: Dict, start, visited: Set = None, order: List = None) -
     return order
 
 
-def dfs_iterative(graph: Dict, start) -> List:
+def dfs_iterative(graph: dict, start) -> list:
     visited, order = set(), []
     stack = [start]
 
