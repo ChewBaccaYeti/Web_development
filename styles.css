@@ -25,3 +25,28 @@ body {
     gap: 12px;
     margin-top: 12px;
 }
+
+#labelCounter {
+    display: block;
+    text-align: center;
+    font-size: 10em;
+}
+
+#containerCounter {
+    gap: 10px;
+    margin: 10px 20px;
+    text-align: center;
+    .btnCounter {
+        border: 2px solid burlywood;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 1.5em;
+        color: white;
+        background-color: lightskyblue;
+        cursor: pointer;
+        transition: background-color 0.25s;
+    }
+    .btnCounter:hover {
+        background-color: deepskyblue;
+    }
+}
