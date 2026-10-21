@@ -83,14 +83,31 @@ function myCounter() {
         count++;
         labelCounter.textContent = count;
     };
-
 };
 
-// myGPA();
-// myPrompt()
-// myUserName()
-// myAge();
-// checkType();
-// constantsCheck();
-myCounter();
+function getRandomNum() {
+    let min = 0;
+    let max = 1000;
+    let randomNum;
 
+    const labels = document.getElementsByClassName("labelGetRandomNum");
+    const btnGetRandomNum = document.getElementById("btnGetRandomNum");
+
+    btnGetRandomNum.onclick = function () {
+        for (let i = 0; i < labels.length; i++) {
+            randomNum = Math.floor(Math.random() * max) + min;
+            labels[i].textContent = randomNum;
+        }
+    };
+
+    console.log(randomNum);
+};
+
+myGPA();
+// myPrompt();
+myUserName();
+// myAge();
+checkType();
+constantsCheck();
+myCounter();
+getRandomNum();
