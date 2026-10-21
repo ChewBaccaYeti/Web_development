@@ -8,6 +8,11 @@ body {
 }
 
 .JS_container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 4px;
     border: 4px dashed gold;
     border-radius: 0.5em;
     margin: 12px 0 0 0;
