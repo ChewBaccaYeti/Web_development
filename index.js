@@ -8,26 +8,35 @@ function myGPA() {
     let y = 5;
     let z = 7;
     let gpa = ((x * y * z) / 3) / 10;
+
     console.log(`Data type of your GPA(${gpa}) is a:`, typeof gpa);
 };
+
 function myPrompt() {
     let prompt_ = window.prompt("What's on your mind?");
     document.getElementById("mySpan").textContent = prompt_;
+
     console.log(prompt_);
 };
-document.getElementById("mySubmit").onclick = function () {
-    let userName = document.getElementById("myInput").value;
-    document.getElementById("myH2").textContent = `Hello ${userName}`
 
-    console.log(userName);
+function myUserName() {
+    document.getElementById("submitUserName").onclick = function () {
+        let userName = document.getElementById("inputUserName").value;
+        document.getElementById("myH2").textContent = `Hello ${userName}`
+
+        console.log(userName);
+    };
 };
+
 function myAge() {
     let age = window.prompt("How old are you?");
     console.log(age, typeof age);
     age = Number(age);
     age += 1;
+
     console.log(age, typeof age);
 };
+
 function checkType() {
     let x = "__PROTOTYPE__*";
     x = Number(x);
@@ -38,9 +47,27 @@ function checkType() {
     console.log(x, typeof x);
 };
 
-myGPA();
-myPrompt()
-myAge();
-checkType();
+function constantsCheck() {
+    const pi = Math.PI;
+    let radius;
+    let circumFerence;
+
+    document.getElementById("inputRadius").onclick = function () {
+        // radius = window.prompt("Enter the radius of a circle");
+        radius = document.getElementById("inputRadius").value;
+        radius = Number(radius);
+        circumFerence = 2 * pi * radius;
+        document.getElementById("headerRadius").textContent = `The Radius is: ${circumFerence}`;
+        console.log(circumFerence);
+    }
+
+};
+
+// myGPA();
+// myPrompt()
+// myUserName()
+// myAge();
+// checkType();
+// constantsCheck();
 
 
